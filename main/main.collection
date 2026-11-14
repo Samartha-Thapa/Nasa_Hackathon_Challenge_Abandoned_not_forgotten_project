@@ -1,2 +1,29 @@
 name: "main"
+instances {
+  id: "player"
+  prototype: "/main/player.go"
+  position {
+    x: 640.0
+    y: 327.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.255786
+    y: 0.202386
+  }
+}
 scale_along_z: 0
+embedded_instances {
+  id: "earth_map"
+  data: "components {\n"
+  "  id: \"earth_map\"\n"
+  "  component: \"/assets/tiles/earth_map.tilemap\"\n"
+  "  position {\n"
+  "    z: -10.0\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    z: -10.0
+  }
+}
