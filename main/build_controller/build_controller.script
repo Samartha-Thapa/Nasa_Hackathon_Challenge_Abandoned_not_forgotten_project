@@ -1,0 +1,143 @@
+go.property("start_money", 100)
+
+local BUILDINGS = {
+	solar = { name = "Solar Panel Farm", cost = 100, money = 5, science = 0 },
+	research = { name = "Research Base", cost = 150, money = 0, science = 3 },
+	museum = { name = "Museum", cost = 200, money = 3, science = 2 },
+	rocket = { name = "Rocket", cost = 500, money = 0, science = 0 },
+}
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.money = self.start_money
+	self.science = 0
+	self.timer = 0
+	self.near_lot = nil
+	self.menu_open = false
+	self.lots = {
+		{ pos = vmath.vector3(640, 550, 0), building = nil, level = 0 },
+		{ pos = vmath.vector3(280, 380, 0), building = nil, level = 0 },
+		{ pos = vmath.vector3(1000, 380, 0), building = nil, level = 0 },
+		{ pos = vmath.vector3(280, 180, 0), building = nil, level = 0 },
+		{ pos = vmath.vector3(1000, 180, 0), building = nil, level = 0 },
+	}
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	self.timer = self.timer + dt
+	if self.timer >= 1 then
+		self.timer = 0
+		local money_gain = 2
+		local science_gain = 0
+		for _, lot in ipairs(self.lots) do
+			if lot.building then
+				local b = BUILDINGS[lot.building]
+				money_gain = money_gain + b.money * lot.level
+				science_gain = science_gain + b.science * lot.level
+			end
+		end
+		self.money = self.money + money_gain
+		self.science = self.science + science_gain
+		msg.post("/hud#hud", "update_money", { money = math.floor(self.money), science = math.floor(self.science) })
+	end
+end
+
+function late_update(self, dt)
+	-- This function is called at the end of update cycle but before render
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function fixed_update(self, dt)
+	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
+	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
+	-- Physics section of game.project
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	print("BUILD CONTROLLER GOT:", message_id)
+	if message_id == hash("player_entered_lot") then
+		self.near_lot = message.lot
+		self.menu_open = false
+		local lot = self.lots[self.near_lot]
+		if lot.building == nil then
+			msg.post("/hud#hud", "show_dialogue", { text = "Empty Lot! Press E to Build: [1] Solar 100 [2] Research 150 [3] Museum 200 [4] Rocket 500" })
+		else
+			msg.post("/hud#hud", "show_dialogue", { text = "Built! Press E for Upgrade / Launch" })
+		end
+		return
+	elseif message_id == hash("player_left_lot") then
+		self.near_lot = nil
+		self.menu_open = false
+		return
+	elseif message_id == hash("try_interact") then
+		if not self.near_lot then return end
+		self.menu_open = true
+		local lot = self.lots[self.near_lot]
+		if lot.building == nil then
+			msg.post("/hud#hud", "show_dialogue", { text = "CHOOSE: Press 1 Solar, 2 Research, 3 Museum, 4 Rocket" })
+		else
+			if lot.building == "rocket" then
+				if self.money >= 500 and self.science >= 300 then
+					self.money = self.money - 500
+					self.science = self.science - 300
+					msg.post("/hud#hud", "show_dialogue", { text = "3...2...1... ROCKET LAUNCHED! YOU WIN!" })
+					msg.post("/player", "set_can_move", { enabled = false })
+				else
+					msg.post("/hud#hud", "show_dialogue", { text = "Need 500 Money + 300 Science to Launch! You have " .. math.floor(self.money) .. " / " .. math.floor(self.science) })
+				end
+			else
+				local b = BUILDINGS[lot.building]
+				local upgrade_cost = math.floor(b.cost * 1.5 * lot.level)
+				if self.money >= upgrade_cost then
+					self.money = self.money - upgrade_cost
+					lot.level = lot.level + 1
+					msg.post("/hud#hud", "show_dialogue", { text = b.name .. " upgraded to Lv." .. lot.level .. "!" })
+				else
+					msg.post("/hud#hud", "show_dialogue", { text = "Need " .. upgrade_cost .. " coins to upgrade!" })
+				end
+			end
+			self.menu_open = false
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	if not self.menu_open then return end
+	if not action.pressed then return end
+
+	local choice = nil
+	if action_id == hash("key_1") then choice = "solar"
+	elseif action_id == hash("key_2") then choice = "research"
+	elseif action_id == hash("key_3") then choice = "museum"
+	elseif action_id == hash("key_4") then choice = "rocket" end
+
+	if choice and self.near_lot then
+		local lot = self.lots[self.near_lot]
+		local b = BUILDINGS[choice]
+		if self.money >= b.cost then
+			self.money = self.money - b.cost
+			lot.building = choice
+			lot.level = 1
+			msg.post("/hud#hud", "show_dialogue", { text = b.name .. " BUILT! It now earns for you every second." })
+		else
+			msg.post("/hud#hud", "show_dialogue", { text = "Not enough money! Need " .. b.cost .. ", you have " .. math.floor(self.money) })
+		end
+		self.menu_open = false
+	end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

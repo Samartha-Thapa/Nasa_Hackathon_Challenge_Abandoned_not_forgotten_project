@@ -1,0 +1,56 @@
+script: "/main/hud/hud.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 148.0
+    y: 620.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Text = Coins: 100 Science: 0"
+  font: "default"
+  id: "money_text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 480.0
+    y: 80.0
+  }
+  size {
+    x: 900.0
+    y: 70.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "dialogue_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 480.0
+    y: 80.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Welcome! Walk to a grey pad"
+  font: "default"
+  id: "dialogue"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

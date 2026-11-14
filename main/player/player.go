@@ -1,6 +1,6 @@
 components {
   id: "player"
-  component: "/main/player.script"
+  component: "/main/player/player.script"
 }
 embedded_components {
   id: "sprite"
@@ -14,7 +14,7 @@ embedded_components {
   ""
 }
 embedded_components {
-  id: "collisionobject"
+  id: "collision_world"
   type: "collisionobject"
   data: "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
   "mass: 0.0\n"
@@ -46,5 +46,31 @@ embedded_components {
   "near_z: -10.0\n"
   "far_z: 1000.0\n"
   "orthographic_projection: 1\n"
+  "orthographic_zoom: 1.3\n"
+  ""
+}
+embedded_components {
+  id: "collision_pad"
+  type: "collisionobject"
+  data: "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
+  "mass: 0.0\n"
+  "friction: 0.1\n"
+  "restitution: 0.5\n"
+  "group: \"player\"\n"
+  "mask: \"lot\"\n"
+  "embedded_collision_shape {\n"
+  "  shapes {\n"
+  "    shape_type: TYPE_BOX\n"
+  "    position {\n"
+  "    }\n"
+  "    rotation {\n"
+  "    }\n"
+  "    index: 0\n"
+  "    count: 3\n"
+  "  }\n"
+  "  data: 70.49978\n"
+  "  data: 93.46085\n"
+  "  data: 10.0\n"
+  "}\n"
   ""
 }
