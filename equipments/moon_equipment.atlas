@@ -1,19 +1,1 @@
-images {
-  image: "/assets/equipments/apollo_11_eagle_moon.png"
-}
-images {
-  image: "/assets/equipments/apollo_12_moon.png"
-}
-images {
-  image: "/assets/equipments/apollo_15_lrv.png"
-}
-images {
-  image: "/assets/equipments/Luna_2_probe_moon.png"
-}
-images {
-  image: "/assets/equipments/lunokhod_moon.png"
-}
-images {
-  image: "/assets/equipments/surveyour_moon.png"
-}
 extrude_borders: 2

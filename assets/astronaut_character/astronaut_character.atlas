@@ -1,0 +1,72 @@
+animations {
+  id: "idle"
+  images {
+    image: "/assets/astronaut_character/idle/Astronaut_Pixel_Sprite_Sheet_07.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "up"
+  images {
+    image: "/assets/astronaut_character/up/Astronaut_Pixel_Sprite_Sheet_08.png"
+  }
+  images {
+    image: "/assets/astronaut_character/up/Astronaut_Pixel_Sprite_Sheet_09.png"
+  }
+  images {
+    image: "/assets/astronaut_character/up/Astronaut_Pixel_Sprite_Sheet_10.png"
+  }
+  images {
+    image: "/assets/astronaut_character/up/Astronaut_Pixel_Sprite_Sheet_11.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "down"
+  images {
+    image: "/assets/astronaut_character/down/Astronaut_Pixel_Sprite_Sheet_14.png"
+  }
+  images {
+    image: "/assets/astronaut_character/down/Astronaut_Pixel_Sprite_Sheet_15.png"
+  }
+  images {
+    image: "/assets/astronaut_character/down/Astronaut_Pixel_Sprite_Sheet_16.png"
+  }
+  images {
+    image: "/assets/astronaut_character/down/Astronaut_Pixel_Sprite_Sheet_17.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "left"
+  images {
+    image: "/assets/astronaut_character/left/Astronaut_Pixel_Sprite_Sheet_20.png"
+  }
+  images {
+    image: "/assets/astronaut_character/left/Astronaut_Pixel_Sprite_Sheet_21.png"
+  }
+  images {
+    image: "/assets/astronaut_character/left/Astronaut_Pixel_Sprite_Sheet_22.png"
+  }
+  images {
+    image: "/assets/astronaut_character/left/Astronaut_Pixel_Sprite_Sheet_23.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "right"
+  images {
+    image: "/assets/astronaut_character/right/Astronaut_Pixel_Sprite_Sheet_26.png"
+  }
+  images {
+    image: "/assets/astronaut_character/right/Astronaut_Pixel_Sprite_Sheet_27.png"
+  }
+  images {
+    image: "/assets/astronaut_character/right/Astronaut_Pixel_Sprite_Sheet_28.png"
+  }
+  images {
+    image: "/assets/astronaut_character/right/Astronaut_Pixel_Sprite_Sheet_29.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2
