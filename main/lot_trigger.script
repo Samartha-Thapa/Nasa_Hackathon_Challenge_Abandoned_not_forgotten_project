@@ -36,10 +36,10 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("trigger_response") then
 		if message.enter then
-			print("ENTERED LOT", self.lot_index)
-			msg.post("/build_controller", "player_entered_lot", { lot = self.lot_index })
+			-- send my real position, not a guessed one
+			local my_pos = go.get_world_position()
+			msg.post("/build_controller", "player_entered_lot", { lot = self.lot_index, pos = my_pos })
 		else
-			print("LEFT LOT", self.lot_index)
 			msg.post("/build_controller", "player_left_lot", { lot = self.lot_index })
 			msg.post("/hud#hud", "hide_dialogue")
 		end

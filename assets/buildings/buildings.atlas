@@ -1,0 +1,29 @@
+animations {
+  id: "museum"
+  images {
+    image: "/assets/buildings/museum.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "research"
+  images {
+    image: "/assets/buildings/research.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "rocket"
+  images {
+    image: "/assets/buildings/rocket.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "solar"
+  images {
+    image: "/assets/buildings/solar.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

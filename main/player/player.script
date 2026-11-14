@@ -79,6 +79,12 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
+
+	if action_id == hash("interact") and action.pressed then
+		msg.post("/build_controller", "try_interact")
+		return
+	end
+	
 	local pressed = action.pressed
 	local released = action.released
 

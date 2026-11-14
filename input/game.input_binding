@@ -16,19 +16,19 @@ key_trigger {
 }
 key_trigger {
   input: KEY_1
-  action: "Key_1"
+  action: "key_1"
 }
 key_trigger {
   input: KEY_2
-  action: "Key_2"
+  action: "key_2"
 }
 key_trigger {
   input: KEY_3
-  action: "Key_3"
+  action: "key_3"
 }
 key_trigger {
   input: KEY_4
-  action: "Key_4"
+  action: "key_4"
 }
 key_trigger {
   input: KEY_UP
