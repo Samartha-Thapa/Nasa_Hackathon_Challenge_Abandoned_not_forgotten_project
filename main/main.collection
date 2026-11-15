@@ -1,17 +1,5 @@
 name: "main"
-embedded_instances {
-  id: "gameplay_ambient"
-  data: "embedded_components {\n"
-  "  id: \"gameplay_ambient\"\n"
-  "  type: \"sound\"\n"
-  "  data: \"sound: /assets/sound_effects/regular_audio(of  thurster).wav\\n"
-  "gain: 0.08\\n"
-  "looping: 1\\n"
-  "auto_play: 1\\n"
-  "\"\n"
-  "}\n"
-  ""
-}
+
 instances {
   id: "player"
   prototype: "/main/player/player.go"

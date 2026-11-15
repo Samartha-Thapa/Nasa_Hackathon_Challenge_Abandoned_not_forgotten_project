@@ -14,8 +14,9 @@ local function set_space_visible(visible)
 end
 
 local function finish_opening(self)
+	if self.finished then return end
 	self.finished = true
-	msg.post("@system", "load", { collection = "/main/main.collectionc" })
+	msg.post("bootstrap:/loader#loader", "go_to_earth")
 end
 
 local function update_space_motion(self, dt)

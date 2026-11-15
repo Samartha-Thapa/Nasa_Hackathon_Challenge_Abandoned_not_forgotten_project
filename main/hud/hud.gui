@@ -126,7 +126,6 @@ nodes {
   texture: "opening_space/deep_blue_space"
   id: "intro_bg"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -141,7 +140,6 @@ nodes {
   texture: "opening_space/deep_blue_stars_far"
   id: "intro_stars_far"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -156,7 +154,6 @@ nodes {
   texture: "opening_space/deep_blue_stars_near"
   id: "intro_stars_near"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -168,10 +165,9 @@ nodes {
     y: 720.0
   }
   type: TYPE_BOX
-  texture: "opening_space/deep_blue_asteroids"
+  texture: "opening_space/deep_blue_space"
   id: "intro_asteroids"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -183,10 +179,9 @@ nodes {
     y: 150.0
   }
   type: TYPE_BOX
-  texture: "opening_space/planet_moon"
+  texture: "opening_space/planet_moon_1"
   id: "intro_planet"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -201,7 +196,6 @@ nodes {
   texture: "opening_earth/3471741219"
   id: "intro_earth"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -216,7 +210,6 @@ nodes {
   texture: "opening/NPC_commander"
   id: "intro_commander"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -246,12 +239,11 @@ nodes {
     x: 0.02
     y: 0.03
     z: 0.08
-    w: 0.92
   }
   type: TYPE_BOX
   id: "intro_panel"
   inherit_alpha: true
-  size_mode: SIZE_MODE_MANUAL
+  alpha: 0.92
 }
 nodes {
   position {
@@ -263,7 +255,6 @@ nodes {
     y: 90.0
   }
   type: TYPE_TEXT
-  text: ""
   font: "default"
   id: "intro_dialogue"
   inherit_alpha: true

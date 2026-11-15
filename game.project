@@ -1,5 +1,5 @@
 [bootstrap]
-main_collection = /main/earth_opening_sequence.collectionc
+main_collection = /main/bootstrap/bootstrap.collectionc
 
 [script]
 shared_state = 1
@@ -21,3 +21,4 @@ scale_mode = stretch
 
 [project]
 title = Nasa_hackathon_project_abandoned_not_forgotten
+

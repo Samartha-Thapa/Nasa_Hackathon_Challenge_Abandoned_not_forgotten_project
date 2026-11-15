@@ -46,9 +46,9 @@ function update(self, dt)
 			self.launching = false
 			msg.post("/hud#hud", "hide_launch")
 			if self.pending_destination == "Moon" then
-				msg.post("main:/loader#loader", "go_to_moon")
+				msg.post("bootstrap:/loader#loader", "go_to_moon")
 			else
-				msg.post("main:/loader#loader", "go_to_mars")
+				msg.post("bootstrap:/loader#loader", "go_to_mars")
 			end
 		end
 	end

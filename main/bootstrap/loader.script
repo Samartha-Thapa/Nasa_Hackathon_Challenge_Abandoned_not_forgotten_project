@@ -1,9 +1,9 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	self.current = "earth"
+	self.current = "opening"
 	self.next = nil
-	msg.post("#proxy_earth", "load")
-end
+	msg.post("#proxy_opening", "load")
+end 
 
 function final(self)
 	-- Add finalization code here
@@ -35,34 +35,40 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("proxy_loaded") then
 		msg.post(sender, "enable")
+	elseif message_id == hash("go_to_earth") then
+		if self.current ~= "earth" then
+			self.next = "earth"
+			if self.current == "opening" then msg.post("#proxy_opening", "unload")
+			elseif self.current == "moon" then msg.post("#proxy_moon", "unload")
+			elseif self.current == "mars" then msg.post("#proxy_mars", "unload") end
+		end
 	elseif message_id == hash("go_to_moon") then
 		if self.current ~= "moon" then
 			self.next = "moon"
-			if self.current == "earth" then msg.post("#proxy_earth", "unload")
+			if self.current == "opening" then msg.post("#proxy_opening", "unload")
+			elseif self.current == "earth" then msg.post("#proxy_earth", "unload")
 			elseif self.current == "mars" then msg.post("#proxy_mars", "unload") end
 		end
 	elseif message_id == hash("go_to_mars") then
 		if self.current ~= "mars" then
 			self.next = "mars"
-			if self.current == "earth" then msg.post("#proxy_earth", "unload")
+			if self.current == "opening" then msg.post("#proxy_opening", "unload")
+			elseif self.current == "earth" then msg.post("#proxy_earth", "unload")
 			elseif self.current == "moon" then msg.post("#proxy_moon", "unload") end
 		end
-	elseif message_id == hash("go_to_earth") then
-		if self.current ~= "earth" then
-			self.next = "earth"
-			if self.current == "moon" then msg.post("#proxy_moon", "unload")
-			elseif self.current == "mars" then msg.post("#proxy_mars", "unload") end
-		end
 	elseif message_id == hash("proxy_unloaded") then
-		if self.next == "moon" then
+		if self.next == "opening" then
+			msg.post("#proxy_opening", "load")
+			self.current = "opening"
+		elseif self.next == "earth" then
+			msg.post("#proxy_earth", "load")
+			self.current = "earth"
+		elseif self.next == "moon" then
 			msg.post("#proxy_moon", "load")
 			self.current = "moon"
 		elseif self.next == "mars" then
 			msg.post("#proxy_mars", "load")
 			self.current = "mars"
-		elseif self.next == "earth" then
-			msg.post("#proxy_earth", "load")
-			self.current = "earth"
 		end
 		self.next = nil
 	end
