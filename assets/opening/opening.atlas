@@ -16,6 +16,12 @@ images {
 images {
   image: "/assets/tiles/NASA Campus_ Earth Map and Assets copy.png"
 }
+images {
+  image: "/assets/opening/base_clouds_overlay.png"
+}
+images {
+  image: "/assets/opening/base_water_overlay.png"
+}
 animations {
   id: "earth_01"
   images { image: "/assets/opening/earth/frame_01.png" }

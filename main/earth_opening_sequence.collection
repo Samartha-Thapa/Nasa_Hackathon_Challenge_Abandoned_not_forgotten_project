@@ -10,5 +10,9 @@ embedded_instances {
   "  id: \"opening_sound\"\n"
   "  component: \"/main/opening/opening.sound\"\n"
   "}\n"
+  "components {\n"
+  "  id: \"typing_sound\"\n"
+  "  component: \"/main/opening/typing.sound\"\n"
+  "}\n"
   ""
 }
