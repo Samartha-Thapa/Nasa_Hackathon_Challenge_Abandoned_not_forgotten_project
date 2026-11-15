@@ -23,6 +23,10 @@ textures {
   name: "space_background"
   texture: "/main/hud/space_background.atlas"
 }
+textures {
+  name: "moon_equipment"
+  texture: "/assets/equipments/moon_equipment.atlas"
+}
 nodes {
   position {
     x: 148.0
@@ -355,24 +359,6 @@ nodes {
 }
 nodes {
   position {
-    x: 268.0
-    y: 400.0
-  }
-  scale {
-    x: 0.723524
-    y: 0.601165
-  }
-  size {
-    x: 320.0
-    y: 400.0
-  }
-  type: TYPE_BOX
-  id: "story_image"
-  inherit_alpha: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
     x: 528.0
     y: 590.0
   }
@@ -496,6 +482,70 @@ nodes {
   id: "story_prompt"
   line_break: true
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 267.0
+    y: 435.0
+  }
+  scale {
+    x: 0.28
+    y: 0.28
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/Apollo_11"
+  id: "story_image_apollo_11"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 261.0
+    y: 389.0
+  }
+  scale {
+    x: 0.28
+    y: 0.28
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/apollo_12_moon"
+  id: "story_image_apollo_12"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 251.0
+    y: 430.0
+  }
+  scale {
+    x: 0.4
+    y: 0.4
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/apollo_15_lrv"
+  id: "story_image_apollo_15_lrv"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 261.0
+    y: 395.0
+  }
+  scale {
+    x: 0.3
+    y: 0.3
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/surveyour_moon"
+  id: "story_image_surveyour"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT
