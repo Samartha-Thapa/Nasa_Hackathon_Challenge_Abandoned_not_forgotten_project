@@ -19,9 +19,6 @@ images {
 images {
   image: "/assets/opening/base_clouds_overlay.png"
 }
-images {
-  image: "/assets/opening/base_water_overlay.png"
-}
 animations {
   id: "earth_01"
   images { image: "/assets/opening/earth/frame_01.png" }

@@ -1,0 +1,443 @@
+script: "/main/store/store.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "store"
+  texture: "/assets/store/store.atlas"
+}
+textures {
+  name: "buildings"
+  texture: "/assets/buildings/buildings.atlas"
+}
+nodes {
+  position { x: 640.0 y: 360.0 }
+  size { x: 1280.0 y: 720.0 }
+  color { x: 0.0 y: 0.0 z: 0.02 w: 0.68 }
+  type: TYPE_BOX
+  id: "store_scrim"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 355.0 }
+  size { x: 1080.0 y: 590.0 }
+  color { x: 0.06 y: 0.08 z: 0.14 w: 0.98 }
+  type: TYPE_BOX
+  id: "store_panel_fill"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 355.0 }
+  size { x: 1080.0 y: 590.0 }
+  color { x: 1.0 y: 1.0 z: 1.0 w: 0.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "store_panel"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 640.0 y: 625.0 }
+  size { x: 300.0 y: 72.0 }
+  color { x: 0.08 y: 0.35 z: 0.62 w: 1.0 }
+  type: TYPE_BOX
+  id: "store_title_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 625.0 }
+  size { x: 260.0 y: 44.0 }
+  text: "STORE"
+  font: "default"
+  type: TYPE_TEXT
+  id: "store_title"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 355.0 y: 545.0 }
+  size { x: 180.0 y: 34.0 }
+  text: "BUILDINGS"
+  font: "default"
+  type: TYPE_TEXT
+  id: "tab_buildings"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 545.0 }
+  size { x: 180.0 y: 34.0 }
+  text: "RESOURCES"
+  font: "default"
+  type: TYPE_TEXT
+  id: "tab_resources"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 925.0 y: 545.0 }
+  size { x: 180.0 y: 34.0 }
+  text: "UPGRADES"
+  font: "default"
+  type: TYPE_TEXT
+  id: "tab_upgrades"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 330.0 y: 505.0 }
+  size { x: 42.0 y: 42.0 }
+  texture: "store/coin"
+  type: TYPE_BOX
+  id: "coin_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 390.0 y: 505.0 }
+  size { x: 190.0 y: 34.0 }
+  text: "1000"
+  font: "default"
+  type: TYPE_TEXT
+  id: "money_value"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 830.0 y: 505.0 }
+  size { x: 42.0 y: 42.0 }
+  texture: "store/research_icon"
+  type: TYPE_BOX
+  id: "research_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 890.0 y: 505.0 }
+  size { x: 190.0 y: 34.0 }
+  text: "300"
+  font: "default"
+  type: TYPE_TEXT
+  id: "science_value"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 340.0 }
+  size { x: 440.0 y: 330.0 }
+  color { x: 0.12 y: 0.15 z: 0.22 w: 0.98 }
+  type: TYPE_BOX
+  id: "card1_fill"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 340.0 }
+  size { x: 440.0 y: 330.0 }
+  color { x: 1.0 y: 1.0 z: 1.0 w: 1.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "card1"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 640.0 y: 335.0 }
+  size { x: 245.0 y: 320.0 }
+  color { x: 0.12 y: 0.15 z: 0.22 w: 0.98 }
+  type: TYPE_BOX
+  id: "card2_fill"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 335.0 }
+  size { x: 245.0 y: 320.0 }
+  color { x: 1.0 y: 1.0 z: 1.0 w: 1.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "card2"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 903.0 y: 335.0 }
+  size { x: 245.0 y: 320.0 }
+  color { x: 0.12 y: 0.15 z: 0.22 w: 0.98 }
+  type: TYPE_BOX
+  id: "card3_fill"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 903.0 y: 335.0 }
+  size { x: 245.0 y: 320.0 }
+  color { x: 1.0 y: 1.0 z: 1.0 w: 1.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "card3"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 1100.0 y: 335.0 }
+  size { x: 190.0 y: 320.0 }
+  color { x: 0.12 y: 0.15 z: 0.22 w: 0.98 }
+  type: TYPE_BOX
+  id: "card4_fill"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 1100.0 y: 335.0 }
+  size { x: 190.0 y: 320.0 }
+  color { x: 1.0 y: 1.0 z: 1.0 w: 1.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "card4"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 640.0 y: 445.0 }
+  size { x: 150.0 y: 105.0 }
+  texture: "buildings/solar"
+  type: TYPE_BOX
+  id: "card1_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 475.0 }
+  size { x: 150.0 y: 105.0 }
+  type: TYPE_BOX
+  id: "card2_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 903.0 y: 475.0 }
+  size { x: 150.0 y: 105.0 }
+  type: TYPE_BOX
+  id: "card3_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 1100.0 y: 475.0 }
+  size { x: 130.0 y: 100.0 }
+  type: TYPE_BOX
+  id: "card4_icon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 350.0 }
+  size { x: 360.0 y: 34.0 }
+  text: "Solar Panel Farm"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card1_name"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 380.0 }
+  size { x: 210.0 y: 34.0 }
+  text: "Research Base"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card2_name"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 903.0 y: 380.0 }
+  size { x: 210.0 y: 34.0 }
+  text: "Museum"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card3_name"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 1100.0 y: 380.0 }
+  size { x: 170.0 y: 34.0 }
+  text: "Rocket"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card4_name"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 275.0 }
+  size { x: 220.0 y: 30.0 }
+  text: "100 coins"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card1_cost"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 300.0 }
+  size { x: 170.0 y: 30.0 }
+  text: "150 coins"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card2_cost"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 903.0 y: 300.0 }
+  size { x: 170.0 y: 30.0 }
+  text: "200 coins"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card3_cost"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 1100.0 y: 300.0 }
+  size { x: 150.0 y: 30.0 }
+  text: "500 coins"
+  font: "default"
+  type: TYPE_TEXT
+  id: "card4_cost"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 220.0 }
+  size { x: 180.0 y: 42.0 }
+  color { x: 0.1 y: 0.55 z: 0.9 w: 1.0 }
+  type: TYPE_BOX
+  id: "buy1"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 235.0 }
+  size { x: 160.0 y: 42.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "buy2"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 903.0 y: 235.0 }
+  size { x: 160.0 y: 42.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "buy3"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 1100.0 y: 235.0 }
+  size { x: 140.0 y: 42.0 }
+  texture: "store/store_border"
+  type: TYPE_BOX
+  id: "buy4"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 640.0 y: 220.0 }
+  size { x: 160.0 y: 26.0 }
+  text: "BUILD"
+  font: "default"
+  type: TYPE_TEXT
+  id: "buy1_text"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 235.0 }
+  size { x: 140.0 y: 26.0 }
+  text: "BUILD"
+  font: "default"
+  type: TYPE_TEXT
+  id: "buy2_text"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 903.0 y: 235.0 }
+  size { x: 140.0 y: 26.0 }
+  text: "BUILD"
+  font: "default"
+  type: TYPE_TEXT
+  id: "buy3_text"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 1100.0 y: 235.0 }
+  size { x: 120.0 y: 26.0 }
+  text: "BUILD"
+  font: "default"
+  type: TYPE_TEXT
+  id: "buy4_text"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 1150.0 y: 625.0 }
+  size { x: 70.0 y: 48.0 }
+  text: "X"
+  font: "default"
+  type: TYPE_TEXT
+  id: "close"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 115.0 }
+  size { x: 680.0 y: 32.0 }
+  text: ""
+  font: "default"
+  type: TYPE_TEXT
+  id: "store_status"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 640.0 y: 180.0 }
+  size { x: 120.0 y: 28.0 }
+  text: "1 / 4"
+  font: "default"
+  type: TYPE_TEXT
+  id: "store_page"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 285.0 y: 335.0 }
+  size { x: 90.0 y: 48.0 }
+  text: "<"
+  font: "default"
+  type: TYPE_TEXT
+  id: "prev"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 285.0 y: 335.0 }
+  size { x: 90.0 y: 48.0 }
+  text: "< PREVIOUS"
+  font: "default"
+  type: TYPE_TEXT
+  id: "prev_text"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 995.0 y: 335.0 }
+  size { x: 90.0 y: 48.0 }
+  text: ">"
+  font: "default"
+  type: TYPE_TEXT
+  id: "next"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 995.0 y: 335.0 }
+  size { x: 120.0 y: 48.0 }
+  text: "NEXT >"
+  font: "default"
+  type: TYPE_TEXT
+  id: "next_text"
+  inherit_alpha: true
+}

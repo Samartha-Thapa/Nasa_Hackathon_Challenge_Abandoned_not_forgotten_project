@@ -19,6 +19,17 @@ instances {
 }
 scale_along_z: 0
 embedded_instances {
+  id: "store"
+  data: "components {\n"
+  "  id: \"store\"\n"
+  "  component: \"/main/store/store.gui\"\n"
+  "}\n"
+  ""
+  position {
+    z: 20.0
+  }
+}
+embedded_instances {
   id: "earth_map"
   data: "components {\n"
   "  id: \"earth_map\"\n"
@@ -39,6 +50,10 @@ embedded_instances {
   data: "components {\n"
   "  id: \"hud\"\n"
   "  component: \"/main/hud/hud.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"typing_sound\"\n"
+  "  component: \"/main/opening/typing.sound\"\n"
   "}\n"
   ""
   position {

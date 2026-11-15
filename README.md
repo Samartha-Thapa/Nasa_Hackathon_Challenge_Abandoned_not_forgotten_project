@@ -29,4 +29,23 @@ the Defold-compatible `typing_sound_effect.ogg`. It is attached through
 `main/opening/typing.sound`, starts when the typewriter text appears, and stops
 when the message finishes or the briefing is skipped.
 
+After the briefing, Commander Hayes gives a guided first objective: walk to the
+highlighted Lot 1 by following the animated dashed route. At the lot, a
+blinking on-screen `OPEN SHOP` button opens the construction store.
+The store remains hidden during normal gameplay and opens only beside a lot.
+It presents one focused item card at a time with Previous/Next controls and
+left/right swipe navigation, plus Buildings, Resources, Upgrades, and Close
+controls. The first building card is the guided BUILD action; resources and
+upgrades are available as separate store sections after that. The build
+controller still validates costs, limits, lot state, and spawned building
+factories; the store only presents the interaction and sends purchase requests.
+The route guide follows the central access-road approach with a turn at the
+outpost. Its cyan dash markers are world-space sprites in
+`main/route_guidance.collection`, so they stay anchored to the map instead of
+sliding with the HUD as the camera follows the player. The keyboard interaction
+shortcut is disabled; the visible shop button is the intended entry point.
+The focused card uses nine-slice framing so its border remains clean at
+different sizes. Building cards use the existing buildings atlas and resource
+cards use the `Space_ships_assets` frames registered in the store atlas.
+
 ---

@@ -1,0 +1,49 @@
+name: "route_guidance"
+instances {
+	id: "route_1"
+	prototype: "/main/route_marker.go"
+	position { x: 640.0 y: 360.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_2"
+	prototype: "/main/route_marker.go"
+	position { x: 640.0 y: 405.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_3"
+	prototype: "/main/route_marker.go"
+	position { x: 640.0 y: 450.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_4"
+	prototype: "/main/route_marker.go"
+	position { x: 640.0 y: 495.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_5"
+	prototype: "/main/route_marker.go"
+	position { x: 640.0 y: 540.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_6"
+	prototype: "/main/route_marker.go"
+	position { x: 660.0 y: 580.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_7"
+	prototype: "/main/route_marker.go"
+	position { x: 690.0 y: 615.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}
+instances {
+	id: "route_8"
+	prototype: "/main/route_marker.go"
+	position { x: 720.0 y: 650.0 z: 2.0 }
+	scale3 { x: 32.0 y: 6.0 z: 1.0 }
+}

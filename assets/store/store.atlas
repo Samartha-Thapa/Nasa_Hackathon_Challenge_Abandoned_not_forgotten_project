@@ -1,0 +1,36 @@
+images {
+  image: "/assets/store/card_panel.png"
+}
+images {
+  image: "/assets/store/store_border.png"
+}
+images {
+  image: "/assets/store/coin.png"
+}
+images {
+  image: "/assets/store/research_icon.png"
+}
+images {
+  image: "/assets/buildings/solar.png"
+}
+images {
+  image: "/assets/buildings/research.png"
+}
+images {
+  image: "/assets/buildings/museum.png"
+}
+images {
+  image: "/assets/buildings/rocket.png"
+}
+images {
+  image: "/assets/Space_ships_assets/Type_1.png"
+}
+images {
+  image: "/assets/Space_ships_assets/Type_2.png"
+}
+images {
+  image: "/assets/Space_ships_assets/Type_3.png"
+}
+images {
+  image: "/assets/Space_ships_assets/Type_4.png"
+}

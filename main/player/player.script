@@ -80,11 +80,6 @@ end
 
 function on_input(self, action_id, action)
 
-	if action_id == hash("interact") and action.pressed then
-		msg.post("/build_controller", "try_interact")
-		return
-	end
-	
 	local pressed = action.pressed
 	local released = action.released
 
@@ -100,8 +95,6 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("down") then
 		if pressed then self.down = true end
 		if released then self.down = false end
-	elseif action_id == hash("interact") and pressed then
-		msg.post("/build_controller", "try_interact")
 	end
 end
 

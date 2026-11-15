@@ -12,6 +12,36 @@ local MISSIONS = {
 	mars = { name = "Mars", money = 800, science = 600 },
 }
 
+local function send_store_result(self, text)
+	msg.post("/store#store", "store_result", {
+		text = text,
+		money = math.floor(self.money),
+		science = math.floor(self.science)
+	})
+	msg.post("/hud#hud", "update_money", {
+		money = math.floor(self.money),
+		science = math.floor(self.science)
+	})
+end
+
+local function build_item(self, choice)
+	local lot = self.lots[self.near_lot]
+	local b = BUILDINGS[choice]
+	if self.counts[choice] >= b.limit then
+		return false, b.name .. " limit reached."
+	end
+	if self.money < b.cost then
+		return false, "Need " .. b.cost .. " coins for " .. b.name .. "."
+	end
+	self.money = self.money - b.cost
+	lot.building = choice
+	lot.level = 1
+	self.counts[choice] = self.counts[choice] + 1
+	local spawn_pos = vmath.vector3(lot.pos.x, lot.pos.y, 0.5)
+	lot.building_id = factory.create("#factory_" .. choice, spawn_pos)
+	return true, b.name .. " construction started."
+end
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.money = self.start_money
@@ -23,6 +53,9 @@ function init(self)
 	self.launching = false
 	self.launch_timer = 0
 	self.pending_destination = nil
+	self.tutorial_timer = 0
+	self.tutorial_sent = false
+	self.inventory = {}
 	self.counts = { solar = 0, research = 0, museum = 0, rocket = 0 }
 	self.lots = {
 		{ building = nil, level = 0, pos = nil, building_id = nil },
@@ -40,6 +73,18 @@ function final(self)
 end
 
 function update(self, dt)
+	if not self.tutorial_sent then
+		self.tutorial_timer = self.tutorial_timer + dt
+		if self.tutorial_timer >= 0.25 then
+			self.tutorial_sent = true
+			msg.post("/hud#hud", "show_tutorial", {
+				marker = true,
+				shop = false,
+				route = true,
+				text = "Commander Hayes: Welcome back, Cadet.\nFollow the dashed route to the highlighted LOT 1."
+			})
+		end
+	end
 	if self.launching then
 		self.launch_timer = self.launch_timer + dt
 		if self.launch_timer >= 3.5 then
@@ -86,57 +131,115 @@ function fixed_update(self, dt)
 	-- Remove this function if not needed
 end
 
-function on_message(self, message_id, message, sender)
+function on_message_legacy(self, message_id, message, sender)
 	if message_id == hash("player_entered_lot") then
 		self.near_lot = message.lot
 		self.menu_open = false
 		local lot = self.lots[self.near_lot]
 		if message.pos then lot.pos = message.pos end
 		if lot.building == nil then
-			msg.post("/hud#hud", "show_dialogue", { text = "Empty Lot " .. self.near_lot .. "! Press E to Build: [1] Solar 100 [2] Research 150 [3] Museum 200 [4] Rocket 500" })
+			msg.post("/hud#hud", "show_tutorial", {
+				marker = self.near_lot == 1,
+				shop = true,
+				route = false,
+				text = "Commander Hayes: This is Lot " .. self.near_lot .. ".\nClick the blinking OPEN SHOP button, then choose a building card."
+			})
 		elseif lot.building == "rocket" then
-			msg.post("/hud#hud", "show_dialogue", { text = "Rocket Ready! Press E to Choose Mission: Moon or Mars" })
+			msg.post("/hud#hud", "show_tutorial", {
+				marker = false,
+				shop = true,
+				route = false,
+				text = "Commander Hayes: Rocket systems are ready.\nClick OPEN SHOP to review upgrades."
+			})
 		else
 			local b = BUILDINGS[lot.building]
-			msg.post("/hud#hud", "show_dialogue", { text = b.name .. " Lv." .. lot.level .. " on Lot " .. self.near_lot .. " - Press E to Upgrade" })
+			msg.post("/hud#hud", "show_tutorial", {
+				marker = false,
+				shop = true,
+				route = false,
+				text = "Commander Hayes: " .. b.name .. " is online at level " .. lot.level .. ".\nClick OPEN SHOP to review upgrades."
+			})
 		end
 		return
 	elseif message_id == hash("player_left_lot") then
 		self.near_lot = nil
 		self.menu_open = false
 		self.mission_select = false
+		msg.post("/store#store", "close_store")
 		return
 	elseif message_id == hash("try_interact") then
 		if not self.near_lot then return end
-		-- Press E again while choosing mission = Cancel
-		if self.mission_select then
-			self.mission_select = false
-			self.menu_open = false
-			msg.post("/hud#hud", "show_dialogue", { text = "Mission cancelled. Press E to choose again." })
-			return
-		end
+		msg.post("/store#store", "open_store", {
+			lot = self.near_lot,
+			money = math.floor(self.money),
+			science = math.floor(self.science)
+		})
+		msg.post("/hud#hud", "hide_dialogue")
+		msg.post("/hud#hud", "hide_shop")
 		self.menu_open = true
-		local lot = self.lots[self.near_lot]
-		if lot.building == nil then
-			msg.post("/hud#hud", "show_dialogue", { text = "CHOOSE: Press 1 Solar, 2 Research, 3 Museum, 4 Rocket" })
-		elseif lot.building == "rocket" then
-			self.mission_select = true
-			msg.post("/hud#hud", "show_dialogue", { text = "CHOOSE MISSION: [1] Moon - 500 Money + 300 Science  [2] Mars - 800 Money + 600 Science  [E] Cancel" })
-		else
-			local b = BUILDINGS[lot.building]
-			local upgrade_cost = math.floor(b.cost * 1.5 * lot.level)
-			if self.money >= upgrade_cost then
-				self.money = self.money - upgrade_cost
-				lot.level = lot.level + 1
-				msg.post("/hud#hud", "show_dialogue", { text = b.name .. " upgraded to Lv." .. lot.level .. "!" })
-				if lot.building_id then
-					msg.post(lot.building_id, "upgrade", { level = lot.level })
-				end
-			else
-				msg.post("/hud#hud", "show_dialogue", { text = "Need " .. upgrade_cost .. " coins to upgrade!" })
+		return
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id ~= hash("store_purchase") and message_id ~= hash("close_store") then
+		return on_message_legacy(self, message_id, message, sender)
+	elseif message_id == hash("store_purchase") then
+			if not self.near_lot then
+				send_store_result(self, "Move beside a construction lot first.")
+				return
 			end
+			local lot = self.lots[self.near_lot]
+			if message.category == "buildings" then
+				if lot.building then
+					send_store_result(self, "This lot already has " .. BUILDINGS[lot.building].name .. ".")
+					return
+				end
+				local ok, text = build_item(self, message.item)
+				send_store_result(self, text)
+				if ok then
+					self.menu_open = false
+					msg.post("/store#store", "close_store")
+					msg.post("/hud#hud", "hide_shop")
+					msg.post("/hud#hud", "show_tutorial", {
+						marker = false,
+						shop = false,
+						route = false,
+						text = "Commander Hayes: Excellent work. The outpost is online.\nMove to the next empty lot when you are ready."
+					})
+				end
+			elseif message.category == "upgrades" then
+				if not lot.building then
+					send_store_result(self, "Build a structure on this lot before upgrading it.")
+					return
+				end
+				local b = BUILDINGS[lot.building]
+				local cost = math.floor(b.cost * 1.5 * lot.level)
+				if self.money < cost then
+					send_store_result(self, "Need " .. cost .. " coins for this upgrade.")
+					return
+				end
+				self.money = self.money - cost
+				lot.level = lot.level + 1
+				if lot.building_id then msg.post(lot.building_id, "upgrade", { level = lot.level }) end
+				send_store_result(self, b.name .. " upgraded to level " .. lot.level .. ".")
+			elseif message.category == "resources" then
+				local costs = { ship_1 = 300, ship_2 = 450, ship_3 = 600 }
+				local cost = costs[message.item]
+				if not cost then
+					send_store_result(self, "Resource unavailable.")
+					return
+				end
+				if self.money < cost then
+					send_store_result(self, "Need " .. cost .. " coins for this resource.")
+					return
+				end
+				self.money = self.money - cost
+				self.inventory[message.item] = (self.inventory[message.item] or 0) + 1
+				send_store_result(self, "Resource added to the construction inventory.")
+			end
+		elseif message_id == hash("close_store") then
 			self.menu_open = false
-		end
 	end
 end
 
@@ -166,39 +269,6 @@ function on_input(self, action_id, action)
 			end
 		end
 		return
-	end
-
-	if not self.menu_open then return end
-
-	local choice = nil
-	if action_id == hash("key_1") then choice = "solar"
-	elseif action_id == hash("key_2") then choice = "research"
-	elseif action_id == hash("key_3") then choice = "museum"
-	elseif action_id == hash("key_4") then choice = "rocket" end
-
-	if choice and self.near_lot then
-		local lot = self.lots[self.near_lot]
-		local b = BUILDINGS[choice]
-		if self.counts[choice] >= b.limit then
-			if b.limit == 1 then
-				msg.post("/hud#hud", "show_dialogue", { text = b.name .. " already built! Only 1 allowed." })
-			else
-				msg.post("/hud#hud", "show_dialogue", { text = b.name .. " limit reached! Only " .. b.limit .. " allowed." })
-			end
-			return
-		end
-		if self.money >= b.cost then
-			self.money = self.money - b.cost
-			lot.building = choice
-			lot.level = 1
-			self.counts[choice] = self.counts[choice] + 1
-			local spawn_pos = vmath.vector3(lot.pos.x, lot.pos.y, 0.5)
-			lot.building_id = factory.create("#factory_" .. choice, spawn_pos)
-			msg.post("/hud#hud", "show_dialogue", { text = b.name .. " BUILT! It now earns for you every second." })
-		else
-			msg.post("/hud#hud", "show_dialogue", { text = "Not enough money! Need " .. b.cost .. ", you have " .. math.floor(self.money) })
-		end
-		self.menu_open = false
 	end
 end
 
