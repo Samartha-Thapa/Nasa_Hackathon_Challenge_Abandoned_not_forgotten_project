@@ -15,8 +15,6 @@ end
 
 function update(self, dt)
 	-- CAMERA FIX: retry every 0.5s, not once.
-	-- Disabled world's update doesn't run, so only the active
-	-- Earth / Moon player will keep stealing focus back.
 	self.camera_retry = self.camera_retry + dt
 	if self.camera_retry > 0.5 then
 		self.camera_retry = 0
@@ -35,9 +33,10 @@ function update(self, dt)
 	local animation = hash("idle")
 
 	if length > 0 then
+		-- move by speed, no collision
 		local pos = go.get_position()
-		pos.x = pos.x + dx / length * self.speed * dt
-		pos.y = pos.y + dy / length * self.speed * dt * 0.85
+		pos.x = pos.x + (dx / length) * self.speed * dt
+		pos.y = pos.y + (dy / length) * self.speed * dt
 		go.set_position(pos)
 
 		if dy > 0 then
@@ -108,7 +107,5 @@ function on_input(self, action_id, action)
 	elseif action_id == hash("down") then
 		if pressed then self.down = true end
 		if released then self.down = false end
-	elseif action_id == hash("interact") and pressed then
-		msg.post("/build_controller", "try_interact")
 	end
 end
