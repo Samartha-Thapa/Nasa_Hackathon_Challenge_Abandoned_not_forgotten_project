@@ -1,1 +1,27 @@
+animations {
+  id: "Apollo_11"
+  images {
+    image: "/assets/equipments/Apollo_11.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "Lrv"
+  images {
+    image: "/equipments/apollo_15_lrv.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "New Animation"
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "New Animation"
+  playback: PLAYBACK_LOOP_FORWARD
+}
+animations {
+  id: "New Animation"
+  playback: PLAYBACK_LOOP_FORWARD
+}
 extrude_borders: 2

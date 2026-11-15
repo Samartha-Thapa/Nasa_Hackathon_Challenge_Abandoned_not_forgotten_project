@@ -23,6 +23,8 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("update_money") then
 		gui.set_text(gui.get_node("money_text"), "Coins: " .. message.money .. "  Science: " .. message.science)
+	elseif message_id == hash("update_logs") then
+		gui.set_text(gui.get_node("money_text"), "Logs: " .. message.logs .. " / " .. message.total)
 	elseif message_id == hash("show_dialogue") then
 		gui.set_text(gui.get_node("dialogue"), message.text)
 		gui.set_enabled(gui.get_node("dialogue"), true)

@@ -7,6 +7,10 @@ textures {
   name: "buildings"
   texture: "/assets/buildings/buildings.atlas"
 }
+textures {
+  name: "space_background"
+  texture: "/main/hud/space_background.atlas"
+}
 nodes {
   position {
     x: 148.0
@@ -62,19 +66,11 @@ nodes {
     y: 318.0
   }
   scale {
-    x: 0.748964
-    y: 6.367694
-  }
-  size {
-    x: 1280.0
-    y: 100.0
-  }
-  color {
-    x: 0.101960786
-    y: 0.101960786
-    z: 0.101960786
+    x: 1.005527
+    y: 0.784711
   }
   type: TYPE_BOX
+  texture: "space_background/blue_nebula"
   id: "launch_bg"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO

@@ -1,0 +1,6 @@
+name: "bootstrap"
+instances {
+  id: "loader"
+  prototype: "/main/bootstrap/loader.go"
+}
+scale_along_z: 0

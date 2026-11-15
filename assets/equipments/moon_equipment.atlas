@@ -1,5 +1,5 @@
 images {
-  image: "/assets/equipments/apollo_11_eagle_moon.png"
+  image: "/assets/equipments/Apollo_11.png"
 }
 images {
   image: "/assets/equipments/apollo_12_moon.png"

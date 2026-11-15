@@ -1,0 +1,8 @@
+animations {
+  id: "blue_nebula"
+  images {
+    image: "/assets/SBS - Seamless Space Backgrounds - Large 1024x1024/Large 1024x1024/Blue Nebula/Blue_Nebula_07-1024x1024.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

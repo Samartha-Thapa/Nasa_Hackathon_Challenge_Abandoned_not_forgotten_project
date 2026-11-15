@@ -15,7 +15,7 @@ local MISSIONS = {
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	self.money = self.start_money
-	self.science = 0
+	self.science = 300
 	self.timer = 0
 	self.near_lot = nil
 	self.menu_open = false
@@ -46,17 +46,13 @@ function update(self, dt)
 			self.launching = false
 			msg.post("/hud#hud", "hide_launch")
 			if self.pending_destination == "Moon" then
-				msg.post("/hud#hud", "show_dialogue", { text = "You arrived at the Moon! Explore the discarded equipment. (Moon map coming next)" })
-				-- When you make moon.collection, uncomment this:
-				-- msg.post("@system", "load", { collection = "/moon/moon.collectionc" })
+				msg.post("main:/loader#loader", "go_to_moon")
 			else
-				msg.post("/hud#hud", "show_dialogue", { text = "You arrived at Mars! Explore the discarded equipment. (Mars map coming next)" })
-				-- When you make mars.collection, uncomment this:
-				-- msg.post("@system", "load", { collection = "/mars/mars.collectionc" })
+				msg.post("main:/loader#loader", "go_to_mars")
 			end
 		end
 	end
-
+	
 	self.timer = self.timer + dt
 	if self.timer >= 1 then
 		self.timer = 0
