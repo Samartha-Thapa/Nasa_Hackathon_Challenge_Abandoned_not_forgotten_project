@@ -1,0 +1,3 @@
+sound: "/assets/sound_effects/opening_sequence.ogg"
+gain: 1.0
+looping: 0

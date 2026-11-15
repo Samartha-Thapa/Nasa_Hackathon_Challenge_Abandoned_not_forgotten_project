@@ -1,0 +1,706 @@
+images {
+  image: "/assets/3471741219.png"
+}
+images {
+  image: "/assets/opening/terran/frame_01.png"
+}
+images {
+  image: "/assets/opening/terran/frame_02.png"
+}
+images {
+  image: "/assets/opening/terran/frame_03.png"
+}
+images {
+  image: "/assets/opening/terran/frame_04.png"
+}
+images {
+  image: "/assets/opening/terran/frame_05.png"
+}
+images {
+  image: "/assets/opening/terran/frame_06.png"
+}
+images {
+  image: "/assets/opening/terran/frame_07.png"
+}
+images {
+  image: "/assets/opening/terran/frame_08.png"
+}
+images {
+  image: "/assets/opening/terran/frame_09.png"
+}
+images {
+  image: "/assets/opening/terran/frame_10.png"
+}
+images {
+  image: "/assets/opening/terran/frame_11.png"
+}
+images {
+  image: "/assets/opening/terran/frame_12.png"
+}
+images {
+  image: "/assets/opening/terran/frame_13.png"
+}
+images {
+  image: "/assets/opening/terran/frame_14.png"
+}
+images {
+  image: "/assets/opening/terran/frame_15.png"
+}
+images {
+  image: "/assets/opening/terran/frame_16.png"
+}
+images {
+  image: "/assets/opening/terran/frame_17.png"
+}
+images {
+  image: "/assets/opening/terran/frame_18.png"
+}
+images {
+  image: "/assets/opening/terran/frame_19.png"
+}
+images {
+  image: "/assets/opening/terran/frame_20.png"
+}
+images {
+  image: "/assets/opening/terran/frame_21.png"
+}
+images {
+  image: "/assets/opening/terran/frame_22.png"
+}
+images {
+  image: "/assets/opening/terran/frame_23.png"
+}
+images {
+  image: "/assets/opening/terran/frame_24.png"
+}
+images {
+  image: "/assets/opening/terran/frame_25.png"
+}
+images {
+  image: "/assets/opening/terran/frame_26.png"
+}
+images {
+  image: "/assets/opening/terran/frame_27.png"
+}
+images {
+  image: "/assets/opening/terran/frame_28.png"
+}
+images {
+  image: "/assets/opening/terran/frame_29.png"
+}
+images {
+  image: "/assets/opening/terran/frame_30.png"
+}
+images {
+  image: "/assets/opening/terran/frame_31.png"
+}
+images {
+  image: "/assets/opening/terran/frame_32.png"
+}
+images {
+  image: "/assets/opening/terran/frame_33.png"
+}
+images {
+  image: "/assets/opening/terran/frame_34.png"
+}
+images {
+  image: "/assets/opening/terran/frame_35.png"
+}
+images {
+  image: "/assets/opening/terran/frame_36.png"
+}
+images {
+  image: "/assets/opening/terran/frame_37.png"
+}
+images {
+  image: "/assets/opening/terran/frame_38.png"
+}
+images {
+  image: "/assets/opening/terran/frame_39.png"
+}
+images {
+  image: "/assets/opening/terran/frame_40.png"
+}
+images {
+  image: "/assets/opening/terran/frame_41.png"
+}
+images {
+  image: "/assets/opening/terran/frame_42.png"
+}
+images {
+  image: "/assets/opening/terran/frame_43.png"
+}
+images {
+  image: "/assets/opening/terran/frame_44.png"
+}
+images {
+  image: "/assets/opening/terran/frame_45.png"
+}
+images {
+  image: "/assets/opening/terran/frame_46.png"
+}
+images {
+  image: "/assets/opening/terran/frame_47.png"
+}
+images {
+  image: "/assets/opening/terran/frame_48.png"
+}
+animations {
+  id: "terran"
+  images { image: "/assets/opening/terran/frame_01.png" }
+  images { image: "/assets/opening/terran/frame_02.png" }
+  images { image: "/assets/opening/terran/frame_03.png" }
+  images { image: "/assets/opening/terran/frame_04.png" }
+  images { image: "/assets/opening/terran/frame_05.png" }
+  images { image: "/assets/opening/terran/frame_06.png" }
+  images { image: "/assets/opening/terran/frame_07.png" }
+  images { image: "/assets/opening/terran/frame_08.png" }
+  images { image: "/assets/opening/terran/frame_09.png" }
+  images { image: "/assets/opening/terran/frame_10.png" }
+  images { image: "/assets/opening/terran/frame_11.png" }
+  images { image: "/assets/opening/terran/frame_12.png" }
+  images { image: "/assets/opening/terran/frame_13.png" }
+  images { image: "/assets/opening/terran/frame_14.png" }
+  images { image: "/assets/opening/terran/frame_15.png" }
+  images { image: "/assets/opening/terran/frame_16.png" }
+  images { image: "/assets/opening/terran/frame_17.png" }
+  images { image: "/assets/opening/terran/frame_18.png" }
+  images { image: "/assets/opening/terran/frame_19.png" }
+  images { image: "/assets/opening/terran/frame_20.png" }
+  images { image: "/assets/opening/terran/frame_21.png" }
+  images { image: "/assets/opening/terran/frame_22.png" }
+  images { image: "/assets/opening/terran/frame_23.png" }
+  images { image: "/assets/opening/terran/frame_24.png" }
+  images { image: "/assets/opening/terran/frame_25.png" }
+  images { image: "/assets/opening/terran/frame_26.png" }
+  images { image: "/assets/opening/terran/frame_27.png" }
+  images { image: "/assets/opening/terran/frame_28.png" }
+  images { image: "/assets/opening/terran/frame_29.png" }
+  images { image: "/assets/opening/terran/frame_30.png" }
+  images { image: "/assets/opening/terran/frame_31.png" }
+  images { image: "/assets/opening/terran/frame_32.png" }
+  images { image: "/assets/opening/terran/frame_33.png" }
+  images { image: "/assets/opening/terran/frame_34.png" }
+  images { image: "/assets/opening/terran/frame_35.png" }
+  images { image: "/assets/opening/terran/frame_36.png" }
+  images { image: "/assets/opening/terran/frame_37.png" }
+  images { image: "/assets/opening/terran/frame_38.png" }
+  images { image: "/assets/opening/terran/frame_39.png" }
+  images { image: "/assets/opening/terran/frame_40.png" }
+  images { image: "/assets/opening/terran/frame_41.png" }
+  images { image: "/assets/opening/terran/frame_42.png" }
+  images { image: "/assets/opening/terran/frame_43.png" }
+  images { image: "/assets/opening/terran/frame_44.png" }
+  images { image: "/assets/opening/terran/frame_45.png" }
+  images { image: "/assets/opening/terran/frame_46.png" }
+  images { image: "/assets/opening/terran/frame_47.png" }
+  images { image: "/assets/opening/terran/frame_48.png" }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 10
+}
+animations {
+  id: "terran_01"
+  images { image: "/assets/opening/terran/frame_01.png" }
+}
+animations {
+  id: "terran_02"
+  images { image: "/assets/opening/terran/frame_02.png" }
+}
+animations {
+  id: "terran_03"
+  images { image: "/assets/opening/terran/frame_03.png" }
+}
+animations {
+  id: "terran_04"
+  images { image: "/assets/opening/terran/frame_04.png" }
+}
+animations {
+  id: "terran_05"
+  images { image: "/assets/opening/terran/frame_05.png" }
+}
+animations {
+  id: "terran_06"
+  images { image: "/assets/opening/terran/frame_06.png" }
+}
+animations {
+  id: "terran_07"
+  images { image: "/assets/opening/terran/frame_07.png" }
+}
+animations {
+  id: "terran_08"
+  images { image: "/assets/opening/terran/frame_08.png" }
+}
+animations {
+  id: "terran_09"
+  images { image: "/assets/opening/terran/frame_09.png" }
+}
+animations {
+  id: "terran_10"
+  images { image: "/assets/opening/terran/frame_10.png" }
+}
+animations {
+  id: "terran_11"
+  images { image: "/assets/opening/terran/frame_11.png" }
+}
+animations {
+  id: "terran_12"
+  images { image: "/assets/opening/terran/frame_12.png" }
+}
+animations {
+  id: "terran_13"
+  images { image: "/assets/opening/terran/frame_13.png" }
+}
+animations {
+  id: "terran_14"
+  images { image: "/assets/opening/terran/frame_14.png" }
+}
+animations {
+  id: "terran_15"
+  images { image: "/assets/opening/terran/frame_15.png" }
+}
+animations {
+  id: "terran_16"
+  images { image: "/assets/opening/terran/frame_16.png" }
+}
+animations {
+  id: "terran_17"
+  images { image: "/assets/opening/terran/frame_17.png" }
+}
+animations {
+  id: "terran_18"
+  images { image: "/assets/opening/terran/frame_18.png" }
+}
+animations {
+  id: "terran_19"
+  images { image: "/assets/opening/terran/frame_19.png" }
+}
+animations {
+  id: "terran_20"
+  images { image: "/assets/opening/terran/frame_20.png" }
+}
+animations {
+  id: "terran_21"
+  images { image: "/assets/opening/terran/frame_21.png" }
+}
+animations {
+  id: "terran_22"
+  images { image: "/assets/opening/terran/frame_22.png" }
+}
+animations {
+  id: "terran_23"
+  images { image: "/assets/opening/terran/frame_23.png" }
+}
+animations {
+  id: "terran_24"
+  images { image: "/assets/opening/terran/frame_24.png" }
+}
+animations {
+  id: "terran_25"
+  images { image: "/assets/opening/terran/frame_25.png" }
+}
+animations {
+  id: "terran_26"
+  images { image: "/assets/opening/terran/frame_26.png" }
+}
+animations {
+  id: "terran_27"
+  images { image: "/assets/opening/terran/frame_27.png" }
+}
+animations {
+  id: "terran_28"
+  images { image: "/assets/opening/terran/frame_28.png" }
+}
+animations {
+  id: "terran_29"
+  images { image: "/assets/opening/terran/frame_29.png" }
+}
+animations {
+  id: "terran_30"
+  images { image: "/assets/opening/terran/frame_30.png" }
+}
+animations {
+  id: "terran_31"
+  images { image: "/assets/opening/terran/frame_31.png" }
+}
+animations {
+  id: "terran_32"
+  images { image: "/assets/opening/terran/frame_32.png" }
+}
+animations {
+  id: "terran_33"
+  images { image: "/assets/opening/terran/frame_33.png" }
+}
+animations {
+  id: "terran_34"
+  images { image: "/assets/opening/terran/frame_34.png" }
+}
+animations {
+  id: "terran_35"
+  images { image: "/assets/opening/terran/frame_35.png" }
+}
+animations {
+  id: "terran_36"
+  images { image: "/assets/opening/terran/frame_36.png" }
+}
+animations {
+  id: "terran_37"
+  images { image: "/assets/opening/terran/frame_37.png" }
+}
+animations {
+  id: "terran_38"
+  images { image: "/assets/opening/terran/frame_38.png" }
+}
+animations {
+  id: "terran_39"
+  images { image: "/assets/opening/terran/frame_39.png" }
+}
+animations {
+  id: "terran_40"
+  images { image: "/assets/opening/terran/frame_40.png" }
+}
+animations {
+  id: "terran_41"
+  images { image: "/assets/opening/terran/frame_41.png" }
+}
+animations {
+  id: "terran_42"
+  images { image: "/assets/opening/terran/frame_42.png" }
+}
+animations {
+  id: "terran_43"
+  images { image: "/assets/opening/terran/frame_43.png" }
+}
+animations {
+  id: "terran_44"
+  images { image: "/assets/opening/terran/frame_44.png" }
+}
+animations {
+  id: "terran_45"
+  images { image: "/assets/opening/terran/frame_45.png" }
+}
+animations {
+  id: "terran_46"
+  images { image: "/assets/opening/terran/frame_46.png" }
+}
+animations {
+  id: "terran_47"
+  images { image: "/assets/opening/terran/frame_47.png" }
+}
+animations {
+  id: "terran_48"
+  images { image: "/assets/opening/terran/frame_48.png" }
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_01.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_02.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_03.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_04.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_05.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_06.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_07.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_08.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_09.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_10.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_11.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_12.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_13.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_14.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_15.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_16.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_17.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_18.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_19.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_20.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_21.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_22.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_23.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_24.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_25.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_26.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_27.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_28.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_29.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_30.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_31.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_32.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_33.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_34.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_35.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_36.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_37.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_38.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_39.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_40.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_41.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_42.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_43.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_44.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_45.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_46.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_47.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_48.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_49.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_50.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_51.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_52.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_53.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_54.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_55.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_56.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_57.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_58.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_59.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_60.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_61.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_62.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_63.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_64.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_65.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_66.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_67.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_68.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_69.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_70.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_71.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_72.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_73.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_74.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_75.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_76.png"
+}
+images {
+  image: "/assets/opening/foozle_earth/foozle_77.png"
+}
+animations {
+  id: "foozle_earth"
+  images { image: "/assets/opening/foozle_earth/foozle_01.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_02.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_03.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_04.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_05.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_06.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_07.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_08.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_09.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_10.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_11.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_12.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_13.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_14.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_15.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_16.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_17.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_18.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_19.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_20.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_21.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_22.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_23.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_24.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_25.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_26.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_27.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_28.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_29.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_30.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_31.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_32.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_33.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_34.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_35.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_36.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_37.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_38.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_39.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_40.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_41.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_42.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_43.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_44.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_45.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_46.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_47.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_48.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_49.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_50.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_51.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_52.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_53.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_54.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_55.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_56.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_57.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_58.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_59.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_60.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_61.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_62.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_63.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_64.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_65.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_66.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_67.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_68.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_69.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_70.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_71.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_72.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_73.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_74.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_75.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_76.png" }
+  images { image: "/assets/opening/foozle_earth/foozle_77.png" }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+}
+extrude_borders: 2
