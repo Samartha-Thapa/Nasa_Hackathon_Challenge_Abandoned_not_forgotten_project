@@ -1,6 +1,5 @@
 [bootstrap]
 main_collection = /main/earth_opening_sequence.collectionc
->>>>>>> cc10ca30869ab97255c3b638088696c029d4fc9c
 
 [script]
 shared_state = 1
