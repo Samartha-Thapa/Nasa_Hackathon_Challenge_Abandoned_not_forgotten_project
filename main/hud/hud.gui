@@ -27,6 +27,10 @@ textures {
   name: "moon_equipment"
   texture: "/assets/equipments/moon_equipment.atlas"
 }
+textures {
+  name: "rocket_launching"
+  texture: "/assets/rocket/rocket_launching.atlas"
+}
 nodes {
   position {
     x: 148.0
@@ -108,11 +112,15 @@ nodes {
 }
 nodes {
   position {
-    x: 640.0
+    x: 947.0
     y: 120.0
   }
+  scale {
+    x: 0.583824
+    y: 0.351783
+  }
   type: TYPE_BOX
-  texture: "buildings/rocket"
+  texture: "rocket_launching/New Animation"
   id: "launch_rocket"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
