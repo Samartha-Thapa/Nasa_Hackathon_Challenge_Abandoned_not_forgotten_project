@@ -33,7 +33,7 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -1314.0
+    y: 40.0
   }
 }
 embedded_instances {
@@ -257,4 +257,12 @@ embedded_instances {
     x: 0.223324
     y: 0.177111
   }
+}
+embedded_instances {
+  id: "build_controller"
+  data: "components {\n"
+  "  id: \"moon_build_controller\"\n"
+  "  component: \"/main/moon_controller/moon_build_controller.script\"\n"
+  "}\n"
+  ""
 }

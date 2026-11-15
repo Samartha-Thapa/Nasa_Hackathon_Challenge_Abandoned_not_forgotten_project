@@ -1,3 +1,72 @@
+local function get_node_safe(name)
+	local ok, node = pcall(gui.get_node, name)
+	if ok then return node end
+	return nil
+end
+local function layout_storybook()
+	local BOOK_CX = 480
+	local BOOK_CY = 270 -- exact center, do not add UP anymore
+
+	local function place_box(name, x, y, w, h)
+		local node = get_node_safe(name)
+		if not node then return end
+		gui.set_pivot(node, gui.PIVOT_CENTER)
+		gui.set_position(node, vmath.vector3(x, y, 0))
+		gui.set_size(node, vmath.vector3(w, h, 0))
+	end
+
+	local function place_text(name, x, y, w, h)
+		local node = get_node_safe(name)
+		if not node then return end
+		gui.set_pivot(node, gui.PIVOT_CENTER)
+		-- Z = 1, so text draws OVER the spine
+		gui.set_position(node, vmath.vector3(x, y, 1))
+		pcall(function() gui.set_line_break(node, true) end)
+		pcall(function() gui.set_text_align(node, gui.TEXT_ALIGN_CENTER) end)
+		if w then pcall(function() gui.set_size(node, vmath.vector3(w, h, 0)) end) end
+	end
+
+	-- dim stays full screen
+	place_box("story_dim", 480, 270, 960, 540)
+
+	-- book smaller: 680 x 360, so bottom fits
+	place_box("story_book_border", BOOK_CX, BOOK_CY, 710, 390)
+	place_box("story_book", BOOK_CX, BOOK_CY, 680, 360)
+	place_box("story_spine", BOOK_CX, BOOK_CY, 8, 360)
+
+	-- left page: name/year ABOVE image, image smaller and lower
+	place_text("story_name", 300, BOOK_CY + 120, 260, 25)
+	place_text("story_year", 300, BOOK_CY + 95, 260, 25)
+	place_box("story_image", 300, BOOK_CY - 45, 230, 180)
+
+	-- right page
+	place_text("story_text", 660, BOOK_CY, 260, 200)
+
+	-- bottom: page and prompt separated by 30px now, not 10px
+	place_text("story_page", 660, BOOK_CY - 140, 260, 25)
+	place_text("story_title", BOOK_CX, BOOK_CY + 160, 600, 30)
+	place_text("story_prompt", BOOK_CX, BOOK_CY - 170, 600, 25)
+end
+
+local function set_node_visible(name, visible)
+	local node = get_node_safe(name)
+	if node then
+		gui.set_visible(node, visible)
+		gui.set_enabled(node, visible)
+	end
+end
+
+local function set_storybook_visible(visible)
+	local nodes = {
+		"story_dim", "story_book_border", "story_book", "story_spine",
+		"story_title", "story_image", "story_name", "story_year",
+		"story_text", "story_page", "story_prompt"
+	}
+	for _, id in ipairs(nodes) do
+		set_node_visible(id, visible)
+	end
+end
+
 local function set_intro_visible(visible)
 	local intro_nodes = {
 		"intro_bg", "intro_stars_far", "intro_stars_near", "intro_asteroids",
@@ -36,6 +105,14 @@ function init(self)
 	self.intro_phase = 1
 	self.intro_timer = 0
 	set_intro_visible(false)
+
+	self.storybook_active = false
+	self.collected = {}
+	self.collected_count = 0
+	self.current_story_id = nil
+	set_storybook_visible(false)
+
+	layout_storybook()
 end
 
 function update(self, dt)
@@ -114,6 +191,38 @@ function on_message(self, message_id, message, sender)
 		gui.set_enabled(gui.get_node("launch_text"), false)
 		gui.set_visible(gui.get_node("launch_rocket"), false)
 		gui.set_enabled(gui.get_node("launch_rocket"), false)
+	elseif message_id == hash("show_storybook") then
+				self.storybook_active = true
+				self.current_story_id = message.id
+				if not self.collected[message.id] then
+					self.collected[message.id] = true
+					self.collected_count = self.collected_count + 1
+				end
+				local title_node = get_node_safe("story_title")
+				if title_node then gui.set_text(title_node, "FIELD JOURNAL // ABANDONED BUT NOT FORGOTTEN") end
+				local name_node = get_node_safe("story_name")
+				if name_node then gui.set_text(name_node, message.title or "") end
+				local year_node = get_node_safe("story_year")
+				if year_node then gui.set_text(year_node, message.year or "") end
+				local text_node = get_node_safe("story_text")
+				if text_node then gui.set_text(text_node, message.text or "") end
+				local page_node = get_node_safe("story_page")
+				if page_node then gui.set_text(page_node, "Artifact " .. self.collected_count .. " / 6  -  Page " .. self.collected_count) end
+				local prompt_node = get_node_safe("story_prompt")
+				if prompt_node then gui.set_text(prompt_node, "Press E to close  -  Press J to open Journal") end
+				set_storybook_visible(true)
+				layout_storybook()
+				local book = get_node_safe("story_book")
+				if book then
+					gui.set_scale(book, vmath.vector3(0.85, 0.85, 1))
+					gui.animate(book, gui.PROP_SCALE, vmath.vector3(1, 1, 1), gui.EASING_OUTBACK, 0.35)
+				end
+				msg.post("/player", "set_can_move", { enabled = false })
+		
+			elseif message_id == hash("hide_storybook") then
+				self.storybook_active = false
+				set_storybook_visible(false)
+		msg.post("/player", "set_can_move", { enabled = true })
 	end
 end
 

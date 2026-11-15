@@ -3,26 +3,32 @@ go.property("equipment_id", hash("eagle"))
 local STORIES = {
 	apollo_11 = {
 		title = "Apollo 11 - Eagle",
+		year = "July 20, 1969",
 		text = "July 20, 1969. Eagle landed here. Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon. Eagle's descent stage is still here, abandoned, but not forgotten."
 	},
 	apollo_12 = {
 		title = "Apollo 12",
+		year = "November 1969",
 		text = "November 1969. Pete Conrad and Alan Bean landed Apollo 12 just 163 meters from Surveyor 3. They walked over and cut pieces off Surveyor to bring home, so scientists could see how 2 years on the Moon changed it."
 	},
 	apollo_15_lrv = {
 		title = "Apollo 15 - Lunar Rover",
+		year = "July 1971",
 		text = "July 1971. Apollo 15 left the first Lunar Roving Vehicle. 【entity-David Scott¦canonical_name=David Scott】 and James Irwin drove it 27 km across the Moon. It is still parked here, its batteries long dead, waiting for its drivers."
 	},
 	surveyor = {
 		title = "Surveyor 3",
+		year = "April 1967",
 		text = "April 1967. Surveyor 3 was a robot. It landed softly, dug in the soil, and sent photos home. Two years later, Apollo 12 astronauts visited it. It was the first robot to be visited by humans on another world."
 	},
 	lunokhod = {
 		title = "Lunokhod 1",
+		year = "November 1970",
 		text = "November 1970. The Soviet Union landed Lunokhod 1, the first rover to drive on another world. It drove 10 km over 10 months, then went silent. It waited 40 years before a laser found it again."
 	},
 	luna_2 = {
 		title = "Luna 2",
+		year = "September 1959",
 		text = "September 1959. Luna 2 was the first human-made object to reach the Moon. It crashed here at 3.3 km per second, scattering small metal pennants. It never landed softly, but it got here first."
 	},
 }
@@ -74,7 +80,6 @@ function on_message(self, message_id, message, sender)
 		if message.group == hash("player") then
 			if message.enter then
 				self.player_near = true
-				-- only show prompt if we are not already showing a story
 				if not self.showing_story then
 					show_dialogue(self, "Press E - " .. self.story.title)
 				end
@@ -83,6 +88,7 @@ function on_message(self, message_id, message, sender)
 				if self.showing_story then
 					self.showing_story = false
 					msg.post("/player", "set_can_move", { enabled = true })
+					msg.post("/hud#hud", "hide_storybook", {})
 				end
 				hide_dialogue(self)
 			end
@@ -96,14 +102,19 @@ function on_input(self, action_id, action)
 	end
 	if action_id == hash("interact") and action.pressed then
 		if not self.showing_story then
+			msg.post("/hud#hud", "show_storybook", {
+				id = self.equipment_id,
+				title = self.story.title,
+				year = self.story.year,
+				text = self.story.text
+			})
 			self.showing_story = true
 			msg.post("/player", "set_can_move", { enabled = false })
-			show_dialogue(self, self.story.title .. ": " .. self.story.text)
+			hide_dialogue(self)
 		else
+			msg.post("/hud#hud", "hide_storybook", {})
 			self.showing_story = false
 			msg.post("/player", "set_can_move", { enabled = true })
-			hide_dialogue(self)
-			-- show prompt again so player knows they can press E again
 			show_dialogue(self, "Press E - " .. self.story.title)
 		end
 	end
