@@ -26,6 +26,18 @@ embedded_instances {
   "    z: -10.0\n"
   "  }\n"
   "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"/assets/tiles/earth_map.tilemap\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"world\\\"\\n"
+  "mask: \\\"player\\\"\\n"
+  "\"\n"
+  "}\n"
   ""
   position {
     x: -44.0
@@ -39,6 +51,13 @@ embedded_instances {
   "  component: \"/main/hud/hud.gui\"\n"
   "}\n"
   ""
+  position {
+    y: 120.0
+  }
+  scale3 {
+    x: 1.033708
+    y: 1.119046
+  }
 }
 embedded_instances {
   id: "lot_1"

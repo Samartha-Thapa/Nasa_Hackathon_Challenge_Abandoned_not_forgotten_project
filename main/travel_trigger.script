@@ -1,0 +1,65 @@
+go.property("destination", "Earth")
+go.property("return_delay", 18)
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.player_near = false
+	self.traveling = false
+	self.travel_timer = 0
+	self.elapsed = 0
+	self.can_return = false
+end
+
+function update(self, dt)
+	if not self.can_return then
+		self.elapsed = self.elapsed + dt
+		if self.elapsed >= self.return_delay then
+			self.can_return = true
+			if self.player_near then
+				msg.post("/hud#hud", "show_dialogue", { text = "Press E - Return to " .. self.destination })
+			end
+		else
+			if self.player_near then
+				local left = math.ceil(self.return_delay - self.elapsed)
+				msg.post("/hud#hud", "show_dialogue", { text = "Rocket refueling... " .. left .. "s" })
+			end
+		end
+	end
+
+	if not self.traveling then return end
+	self.travel_timer = self.travel_timer + dt
+	if self.travel_timer >= 3.0 then
+		self.traveling = false
+		msg.post("/hud#hud", "hide_launch", {})
+		-- don't touch proxies here, ask loader
+		msg.post("bootstrap:/loader#loader", "go_to_earth")
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("trigger_response") then
+		if message.enter then
+			self.player_near = true
+			if self.can_return then
+				msg.post("/hud#hud", "show_dialogue", { text = "Press E - Return to " .. self.destination })
+			else
+				local left = math.ceil(self.return_delay - self.elapsed)
+				msg.post("/hud#hud", "show_dialogue", { text = "Rocket refueling... " .. left .. "s" })
+			end
+		else
+			self.player_near = false
+			msg.post("/hud#hud", "hide_dialogue", {})
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	if not self.player_near or not self.can_return or self.traveling then return end
+	if action_id == hash("interact") and action.pressed then
+		self.traveling = true
+		self.travel_timer = 0
+		msg.post("/hud#hud", "hide_dialogue", {})
+		msg.post("/hud#hud", "show_launch", { destination = self.destination })
+		msg.post("/player", "set_can_move", { enabled = false })
+	end
+end

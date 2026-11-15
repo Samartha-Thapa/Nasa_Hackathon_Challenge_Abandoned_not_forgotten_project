@@ -1,0 +1,8 @@
+animations {
+  id: "New Animation"
+  images {
+    image: "/assets/rocket/Retro Pixel Rocket Launch Sprite.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+}
+extrude_borders: 2

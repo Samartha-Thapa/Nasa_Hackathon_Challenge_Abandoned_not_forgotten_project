@@ -23,6 +23,14 @@ textures {
   name: "space_background"
   texture: "/main/hud/space_background.atlas"
 }
+textures {
+  name: "moon_equipment"
+  texture: "/assets/equipments/moon_equipment.atlas"
+}
+textures {
+  name: "rocket_launching"
+  texture: "/assets/rocket/rocket_launching.atlas"
+}
 nodes {
   position {
     x: 148.0
@@ -244,11 +252,11 @@ nodes {
 }
 nodes {
   position {
-    x: 480.0
-    y: 318.0
+    x: 625.0
+    y: 330.9787
   }
   scale {
-    x: 1.005527
+    x: 1.266179
     y: 0.784711
   }
   type: TYPE_BOX
@@ -274,19 +282,27 @@ nodes {
 }
 nodes {
   position {
-    x: 640.0
+    x: 947.0
     y: 120.0
   }
+  scale {
+    x: 0.583824
+    y: 0.351783
+  }
   type: TYPE_BOX
-  texture: "buildings/rocket"
+  texture: "rocket_launching/New Animation"
   id: "launch_rocket"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
-    x: 640.0
+    x: 647.0
     y: 360.0
+  }
+  scale {
+    x: 1.015096
+    y: 1.057224
   }
   size {
     x: 1280.0
@@ -443,6 +459,271 @@ nodes {
   font: "default"
   id: "intro_prompt"
   inherit_alpha: true
+}
+nodes {
+  position {
+    x: 528.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_BOX
+  id: "story_dim"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 528.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 620.0
+  }
+  color {
+    x: 0.4
+    y: 0.2509804
+    z: 0.101960786
+  }
+  type: TYPE_BOX
+  id: "story_book_border"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 528.0
+    y: 360.0
+  }
+  size {
+    x: 1000.0
+    y: 600.0
+  }
+  color {
+    y: 0.98039216
+    z: 0.8509804
+  }
+  type: TYPE_BOX
+  id: "story_book"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 528.0
+    y: 360.0
+  }
+  size {
+    x: 8.0
+    y: 600.0
+  }
+  color {
+    x: 0.6
+    y: 0.4
+    z: 0.2
+  }
+  type: TYPE_BOX
+  id: "story_spine"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 528.0
+    y: 590.0
+  }
+  size {
+    x: 600.0
+    y: 30.0
+  }
+  color {
+    x: 0.2509804
+    y: 0.14901961
+    z: 0.050980393
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_title"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 268.0
+    y: 270.0
+  }
+  size {
+    x: 260.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_name"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 268.0
+    y: 230.0
+  }
+  size {
+    x: 260.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_year"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 768.0
+    y: 400.0
+  }
+  size {
+    x: 260.0
+    y: 200.0
+  }
+  color {
+    x: 0.2
+    y: 0.14901961
+    z: 0.101960786
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_text"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 788.0
+    y: 130.0
+  }
+  size {
+    x: 260.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_page"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 528.0
+    y: 80.0
+  }
+  size {
+    x: 600.0
+    y: 25.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  type: TYPE_TEXT
+  text: "-text-"
+  font: "default"
+  id: "story_prompt"
+  line_break: true
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 267.0
+    y: 435.0
+  }
+  scale {
+    x: 0.28
+    y: 0.28
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/Apollo_11"
+  id: "story_image_apollo_11"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 261.0
+    y: 389.0
+  }
+  scale {
+    x: 0.28
+    y: 0.28
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/apollo_12_moon"
+  id: "story_image_apollo_12"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 251.0
+    y: 430.0
+  }
+  scale {
+    x: 0.4
+    y: 0.4
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/apollo_15_lrv"
+  id: "story_image_apollo_15_lrv"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
+}
+nodes {
+  position {
+    x: 261.0
+    y: 395.0
+  }
+  scale {
+    x: 0.3
+    y: 0.3
+  }
+  type: TYPE_BOX
+  texture: "moon_equipment/surveyour_moon"
+  id: "story_image_surveyour"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+  visible: false
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

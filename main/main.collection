@@ -1,5 +1,4 @@
 name: "main"
-
 instances {
   id: "player"
   prototype: "/main/player/player.go"
@@ -38,6 +37,18 @@ embedded_instances {
   "    z: -10.0\n"
   "  }\n"
   "}\n"
+  "embedded_components {\n"
+  "  id: \"collisionobject\"\n"
+  "  type: \"collisionobject\"\n"
+  "  data: \"collision_shape: \\\"/assets/tiles/earth_map.tilemap\\\"\\n"
+  "type: COLLISION_OBJECT_TYPE_STATIC\\n"
+  "mass: 0.0\\n"
+  "friction: 0.1\\n"
+  "restitution: 0.5\\n"
+  "group: \\\"world\\\"\\n"
+  "mask: \\\"player\\\"\\n"
+  "\"\n"
+  "}\n"
   ""
   position {
     x: -31.0
@@ -58,7 +69,11 @@ embedded_instances {
   ""
   position {
     x: 13.0
-    y: 24.0
+    y: 20.0
+  }
+  scale3 {
+    x: 1.099843
+    y: 1.284622
   }
 }
 embedded_instances {

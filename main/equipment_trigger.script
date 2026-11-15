@@ -1,10 +1,57 @@
-go.property("equipment_id", hash("eagle"))
-go.property("info", "Apollo 11 Eagle: Left on the Moon in 1969.")
+go.property("equipment_id", "apollo_11")
+
+local STORIES = {
+	apollo_11 = {
+		title = "Apollo 11 - Eagle",
+		year = "July 20, 1969",
+		text = "July 20, 1969, 20:17:40 UT. Eagle landed in Mare Tranquillitatis at 0.67 N, 23.47 E. Neil Armstrong and Buzz Aldrin became the first men to walk on the Moon. They stayed 21 hours 36 minutes, collected 21.55 kg of rock and soil, deployed the EASEP seismometer, and left a plaque: 'We came in peace for all mankind.'",
+		image = "apollo_11"
+	},
+	apollo_12 = {
+		title = "Apollo 12 - Intrepid",
+		year = "November 19, 1969",
+		text = "November 19, 1969, 06:54:35 UT. Intrepid landed in Oceanus Procellarum at 3.01 S, 23.42 W, only about 180 meters from Surveyor 3. Pete Conrad and Alan Bean did 2 moonwalks for 7 hours 45 minutes, collected 34.35 kg of samples, and walked over to Surveyor 3 to bring back its camera and scoop. After liftoff, the LM was crashed into the Moon to make the first artificial moonquake.",
+		image = "apollo_12"
+	},
+	apollo_15_lrv = {
+		title = "Apollo 15 - Lunar Rover",
+		year = "July 30, 1971",
+		text = "July 30, 1971, 22:16:29 UT. Falcon landed in Mare Imbrium at the foot of the Apennine Mountains at 26.13 N, 3.63 E. David Scott and James Irwin were the first to use the Lunar Roving Vehicle. In 3 EVAs totaling 18 hours 35 minutes, they drove 27.9 km to Hadley Rille and collected 77.31 kg of samples. Scott also dropped a hammer and feather together to show they fall at the same rate in vacuum.",
+		image = "apollo_15_lrv"
+	},
+	surveyor = {
+		title = "Surveyor 3",
+		year = "April 20, 1967",
+		text = "Launched April 17, 1967, landed April 20, 1967 at 00:04:17 UT in Oceanus Procellarum at 3 S, 23.41 W. Its radar got confused by reflective rocks, so it bounced twice - first to 10 meters, then to 3 meters - before settling. It sent back 6,326 TV pictures and dug 4 trenches with its surface sampler. It proved lunar soil was like wet sand, solid enough to hold an Apollo LM. Apollo 12 later visited it.",
+		image = "surveyor"
+	},
+	lunokhod = {
+		title = "Lunokhod 1",
+		year = "November 17, 1970",
+		text = "November 17, 1970. Delivered by Luna 17, Lunokhod 1 landed in Mare Imbrium and became the first remote-controlled rover on another world. Driven from Earth, it operated for 322 days, traveled 10.54 km, sent back over 20,000 TV pictures, and tested the soil. It was the Soviet Union's robotic answer to Apollo.",
+		image = "lunokhod"
+	},
+	luna_2 = {
+		title = "Luna 2",
+		year = "September 13, 1959",
+		text = "Launched September 12, 1959. On September 13, 1959, Luna 2 became the first human-made object to reach the Moon, impacting in Mare Imbrium near Archimedes. It carried Soviet pennants and proved the Moon had no strong magnetic field or radiation belts. The Space Race had reached the Moon.",
+		image = "luna_2"
+	},
+}
 
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	msg.post(".", "acquire_input_focus")
+	self.player_near = false
+	self.showing_story = false
+	self.story = STORIES[self.equipment_id] or STORIES.apollo_11
+end
+
+local function show_dialogue(self, text)
+	msg.post("/hud#hud", "show_dialogue", { text = text })
+end
+
+local function hide_dialogue(self)
+	msg.post("/hud#hud", "hide_dialogue", {})
 end
 
 function final(self)
@@ -36,23 +83,48 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("trigger_response") then
-		if message.enter then
-			msg.post("/moon_controller", "found_equipment", { id = self.equipment_id, info = self.info })
-			go.set_enabled(go.get_id(), false)
+		if message.group == hash("player") then
+			if message.enter then
+				self.player_near = true
+				if not self.showing_story then
+					show_dialogue(self, "Press E - " .. self.story.title)
+				end
+			else
+				self.player_near = false
+				if self.showing_story then
+					self.showing_story = false
+					msg.post("/player", "set_can_move", { enabled = true })
+					msg.post("/hud#hud", "hide_storybook", {})
+				end
+				hide_dialogue(self)
+			end
 		end
 	end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
+	if not self.player_near then
+		return
+	end
+	if action_id == hash("interact") and action.pressed then
+		if not self.showing_story then
+			msg.post("/hud#hud", "show_storybook", {
+				id = self.equipment_id,
+				title = self.story.title,
+				year = self.story.year,
+				text = self.story.text,
+				image = self.story.image
+			})
+			self.showing_story = true
+			msg.post("/player", "set_can_move", { enabled = false })
+			hide_dialogue(self)
+		else
+			msg.post("/hud#hud", "hide_storybook", {})
+			self.showing_story = false
+			msg.post("/player", "set_can_move", { enabled = true })
+			show_dialogue(self, "Press E - " .. self.story.title)
+		end
+	end
 end
 
 function on_reload(self)
