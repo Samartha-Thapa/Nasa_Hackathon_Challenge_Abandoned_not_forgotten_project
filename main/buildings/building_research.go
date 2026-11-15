@@ -8,4 +8,8 @@ embedded_components {
   "  texture: \"/assets/buildings/buildings.atlas\"\n"
   "}\n"
   ""
+  position {
+    x: 3.0
+    y: 42.0
+  }
 }

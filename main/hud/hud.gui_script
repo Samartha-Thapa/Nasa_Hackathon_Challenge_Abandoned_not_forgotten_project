@@ -3,6 +3,9 @@ function init(self)
 	gui.set_text(gui.get_node("dialogue"), "")
 	gui.set_enabled(gui.get_node("dialogue"), false)
 	gui.set_enabled(gui.get_node("dialogue_bg"), false)
+	gui.set_enabled(gui.get_node("launch_bg"), false)
+	gui.set_enabled(gui.get_node("launch_text"), false)
+	gui.set_enabled(gui.get_node("launch_rocket"), false)
 end
 
 function final(self)
@@ -20,15 +23,25 @@ end
 function on_message(self, message_id, message, sender)
 	if message_id == hash("update_money") then
 		gui.set_text(gui.get_node("money_text"), "Coins: " .. message.money .. "  Science: " .. message.science)
-
 	elseif message_id == hash("show_dialogue") then
 		gui.set_text(gui.get_node("dialogue"), message.text)
 		gui.set_enabled(gui.get_node("dialogue"), true)
 		gui.set_enabled(gui.get_node("dialogue_bg"), true)
-
 	elseif message_id == hash("hide_dialogue") then
 		gui.set_enabled(gui.get_node("dialogue"), false)
 		gui.set_enabled(gui.get_node("dialogue_bg"), false)
+	elseif message_id == hash("show_launch") then
+		gui.set_enabled(gui.get_node("launch_bg"), true)
+		gui.set_enabled(gui.get_node("launch_text"), true)
+		gui.set_enabled(gui.get_node("launch_rocket"), true)
+		gui.set_text(gui.get_node("launch_text"), "Launching to " .. message.destination .. "...")
+		local rocket = gui.get_node("launch_rocket")
+		gui.set_position(rocket, vmath.vector3(640, 120, 0))
+		gui.animate(rocket, gui.PROP_POSITION, vmath.vector3(640, 900, 0), gui.EASING_OUTQUAD, 3.0)
+	elseif message_id == hash("hide_launch") then
+		gui.set_enabled(gui.get_node("launch_bg"), false)
+		gui.set_enabled(gui.get_node("launch_text"), false)
+		gui.set_enabled(gui.get_node("launch_rocket"), false)
 	end
 end
 
