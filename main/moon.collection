@@ -37,7 +37,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "apollo"
+  id: "apollo_11"
   data: "components {\n"
   "  id: \"equipment_trigger\"\n"
   "  component: \"/main/equipment_trigger.script\"\n"
@@ -148,7 +148,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "apollo_lrv"
+  id: "apollo_15_lrv"
   data: "components {\n"
   "  id: \"equipment_trigger\"\n"
   "  component: \"/main/equipment_trigger.script\"\n"
@@ -189,7 +189,7 @@ embedded_instances {
   "    count: 3\\n"
   "  }\\n"
   "  data: 466.77637\\n"
-  "  data: 48.26967\\n"
+  "  data: 351.62717\\n"
   "  data: 10.0\\n"
   "}\\n"
   "\"\n"
@@ -206,7 +206,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "surveyor_moon"
+  id: "surveyor"
   data: "components {\n"
   "  id: \"equipment_trigger\"\n"
   "  component: \"/main/equipment_trigger.script\"\n"
