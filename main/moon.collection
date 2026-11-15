@@ -32,6 +32,9 @@ embedded_instances {
   "  component: \"/main/hud/hud.gui\"\n"
   "}\n"
   ""
+  position {
+    x: -1314.0
+  }
 }
 embedded_instances {
   id: "apollo"
@@ -51,14 +54,14 @@ embedded_instances {
   "\"\n"
   "}\n"
   "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
+  "  id: \"collision_player\"\n"
   "  type: \"collisionobject\"\n"
   "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
+  "group: \\\"trigger\\\"\\n"
+  "mask: \\\"player\\\"\\n"
   "embedded_collision_shape {\\n"
   "  shapes {\\n"
   "    shape_type: TYPE_BOX\\n"
@@ -77,11 +80,13 @@ embedded_instances {
   "}\n"
   ""
   position {
-    y: 1123.0
+    x: 258.0
+    y: 708.0
+    z: 1.0
   }
   scale3 {
-    x: 0.296364
-    y: 0.236194
+    x: 0.127499
+    y: 0.138142
   }
 }
 embedded_instances {
@@ -89,6 +94,11 @@ embedded_instances {
   data: "components {\n"
   "  id: \"equipment_trigger\"\n"
   "  component: \"/main/equipment_trigger.script\"\n"
+  "  properties {\n"
+  "    id: \"equipment_id\"\n"
+  "    value: \"apollo_12\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
@@ -102,14 +112,14 @@ embedded_instances {
   "\"\n"
   "}\n"
   "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
+  "  id: \"collision_player\"\n"
   "  type: \"collisionobject\"\n"
   "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
+  "group: \\\"trigger\\\"\\n"
+  "mask: \\\"player\\\"\\n"
   "embedded_collision_shape {\\n"
   "  shapes {\\n"
   "    shape_type: TYPE_BOX\\n"
@@ -127,12 +137,26 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+  position {
+    x: 197.0
+    y: 143.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.137239
+    y: 0.182889
+  }
 }
 embedded_instances {
   id: "apollo_lrv"
   data: "components {\n"
   "  id: \"equipment_trigger\"\n"
   "  component: \"/main/equipment_trigger.script\"\n"
+  "  properties {\n"
+  "    id: \"equipment_id\"\n"
+  "    value: \"apollo_15_lrv\"\n"
+  "    type: PROPERTY_TYPE_HASH\n"
+  "  }\n"
   "}\n"
   "embedded_components {\n"
   "  id: \"sprite\"\n"
@@ -146,14 +170,14 @@ embedded_instances {
   "\"\n"
   "}\n"
   "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
+  "  id: \"collision_player\"\n"
   "  type: \"collisionobject\"\n"
   "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
+  "group: \\\"trigger\\\"\\n"
+  "mask: \\\"player\\\"\\n"
   "embedded_collision_shape {\\n"
   "  shapes {\\n"
   "    shape_type: TYPE_BOX\\n"
@@ -171,6 +195,15 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+  position {
+    x: 520.0
+    y: 504.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.158154
+    y: 0.20714
+  }
 }
 embedded_instances {
   id: "surveyor_moon"
@@ -190,14 +223,14 @@ embedded_instances {
   "\"\n"
   "}\n"
   "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
+  "  id: \"collision_player\"\n"
   "  type: \"collisionobject\"\n"
   "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
   "mass: 0.0\\n"
   "friction: 0.1\\n"
   "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
+  "group: \\\"trigger\\\"\\n"
+  "mask: \\\"player\\\"\\n"
   "embedded_collision_shape {\\n"
   "  shapes {\\n"
   "    shape_type: TYPE_BOX\\n"
@@ -215,4 +248,13 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+  position {
+    x: 1272.0
+    y: 311.0
+    z: 1.0
+  }
+  scale3 {
+    x: 0.223324
+    y: 0.177111
+  }
 }
