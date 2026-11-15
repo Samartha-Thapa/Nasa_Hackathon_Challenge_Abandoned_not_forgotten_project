@@ -1,0 +1,211 @@
+script: "/main/opening/opening.gui_script"
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "space"
+  texture: "/assets/opening/space.atlas"
+}
+textures {
+  name: "earth"
+  texture: "/assets/opening/earth.atlas"
+}
+textures {
+  name: "opening"
+  texture: "/assets/opening/opening.atlas"
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 960.0 y: 640.0 }
+  color { x: 0.0 y: 0.0 z: 0.0 w: 1.0 }
+  type: TYPE_BOX
+  id: "black"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 808.0 y: 540.0 }
+  type: TYPE_BOX
+  texture: "space/deep_blue_space"
+  id: "space"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 960.0 y: 540.0 }
+  type: TYPE_BOX
+  texture: "space/deep_blue_stars_far"
+  id: "stars_far"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 960.0 y: 540.0 }
+  type: TYPE_BOX
+  texture: "space/deep_blue_stars_near"
+  id: "stars_near"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 34.0 y: 34.0 }
+  type: TYPE_BOX
+  texture: "space/rock_spin"
+  id: "asteroid_a"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 26.0 y: 26.0 }
+  type: TYPE_BOX
+  texture: "space/ice_spin"
+  id: "asteroid_b"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 785.0 y: 125.0 }
+  size { x: 110.0 y: 110.0 }
+  type: TYPE_BOX
+  texture: "space/moon_spin"
+  id: "moon"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 150.0 y: 125.0 }
+  size { x: 150.0 y: 150.0 }
+  type: TYPE_BOX
+  texture: "space/gas_spin"
+  id: "gas_giant"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 850.0 y: 440.0 }
+  size { x: 90.0 y: 90.0 }
+  type: TYPE_BOX
+  texture: "space/ice_planet_spin"
+  id: "ice_planet"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 160.0 y: 360.0 }
+  size { x: 150.0 y: 150.0 }
+  type: TYPE_BOX
+  texture: "opening/earth_rotation"
+  id: "earth"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 315.0 }
+  size { x: 420.0 y: 420.0 }
+  type: TYPE_BOX
+  texture: "opening/69761543"
+  id: "earth_zoom"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 960.0 y: 540.0 }
+  type: TYPE_BOX
+  texture: "opening/NASA Campus_ Earth Map and Assets copy"
+  id: "base"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 320.0 }
+  size { x: 960.0 y: 540.0 }
+  color { x: 0.0 y: 0.0 z: 0.0 w: 0.0 }
+  type: TYPE_BOX
+  id: "transition_fade"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 533.0 y: 105.0 }
+  size { x: 650.0 y: 126.0 }
+  color { x: 0.01 y: 0.02 z: 0.05 w: 0.92 }
+  type: TYPE_BOX
+  id: "briefing_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 533.0 y: 105.0 }
+  size { x: 650.0 y: 126.0 }
+  type: TYPE_BOX
+  texture: "opening/briefing_border_rounded"
+  id: "briefing_border"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+  slice9 { x: 16.0 y: 16.0 z: 16.0 w: 16.0 }
+}
+nodes {
+  position { x: 240.0 y: 90.0 }
+  size { x: 550.0 y: 82.0 }
+  type: TYPE_TEXT
+  text: ""
+  font: "default"
+  id: "briefing"
+  inherit_alpha: true
+  pivot: PIVOT_W
+}
+nodes {
+  position { x: 240.0 y: 142.0 }
+  size { x: 180.0 y: 26.0 }
+  type: TYPE_TEXT
+  text: ""
+  font: "default"
+  id: "commander_name"
+  inherit_alpha: true
+  pivot: PIVOT_W
+}
+nodes {
+  position { x: 125.0 y: 105.0 }
+  size { x: 160.0 y: 190.0 }
+  type: TYPE_BOX
+  texture: "opening/NPC_commander"
+  id: "commander"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position { x: 480.0 y: 35.0 }
+  size { x: 800.0 y: 36.0 }
+  type: TYPE_TEXT
+  text: "PRESS E OR CLICK TO ENTER EARTH BASE"
+  font: "default"
+  id: "continue"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 480.0 y: 610.0 }
+  size { x: 800.0 y: 34.0 }
+  type: TYPE_TEXT
+  text: "DEEP SPACE // 2047"
+  font: "default"
+  id: "title"
+  inherit_alpha: true
+}
+nodes {
+  position { x: 480.0 y: 570.0 }
+  size { x: 800.0 y: 30.0 }
+  type: TYPE_TEXT
+  text: ""
+  font: "default"
+  id: "signal"
+  inherit_alpha: true
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

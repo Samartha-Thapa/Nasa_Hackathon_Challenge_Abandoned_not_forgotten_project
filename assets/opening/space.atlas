@@ -1,0 +1,275 @@
+images {
+  image: "/assets/space-backgrounds-free/sheets/1080/deep_blue/deep_blue_space.png"
+}
+images {
+  image: "/assets/space-backgrounds-free/sheets/1080/deep_blue/deep_blue_stars_far.png"
+}
+images {
+  image: "/assets/space-backgrounds-free/sheets/1080/deep_blue/deep_blue_stars_near.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_1.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_2.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_3.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_4.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_5.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_6.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_7.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_rock_8.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_1.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_2.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_3.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_4.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_5.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_6.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_7.png"
+}
+images {
+  image: "/assets/opening/objects/asteroid_ice_8.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_1.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_2.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_3.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_4.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_5.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_6.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_7.png"
+}
+images {
+  image: "/assets/opening/objects/planet_gas_giant_8.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_1.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_2.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_3.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_4.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_5.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_6.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_7.png"
+}
+images {
+  image: "/assets/opening/objects/planet_ice_8.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_1.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_2.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_3.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_4.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_5.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_6.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_7.png"
+}
+images {
+  image: "/assets/opening/objects/planet_moon_8.png"
+}
+animations {
+  id: "rock_spin"
+  images {
+    image: "/assets/opening/objects/asteroid_rock_1.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_2.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_3.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_4.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_5.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_6.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_7.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_rock_8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+animations {
+  id: "ice_spin"
+  images {
+    image: "/assets/opening/objects/asteroid_ice_1.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_2.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_3.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_4.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_5.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_6.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_7.png"
+  }
+  images {
+    image: "/assets/opening/objects/asteroid_ice_8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+animations {
+  id: "gas_spin"
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_1.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_2.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_3.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_4.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_5.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_6.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_7.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_gas_giant_8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+animations {
+  id: "ice_planet_spin"
+  images {
+    image: "/assets/opening/objects/planet_ice_1.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_2.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_3.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_4.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_5.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_6.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_7.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_ice_8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+animations {
+  id: "moon_spin"
+  images {
+    image: "/assets/opening/objects/planet_moon_1.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_2.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_3.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_4.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_5.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_6.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_7.png"
+  }
+  images {
+    image: "/assets/opening/objects/planet_moon_8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+extrude_borders: 2

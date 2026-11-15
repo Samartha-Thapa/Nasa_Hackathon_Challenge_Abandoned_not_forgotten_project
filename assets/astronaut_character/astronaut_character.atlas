@@ -2,6 +2,7 @@ animations {
   id: "idle"
   images {
     image: "/assets/astronaut_character/idle/Astronaut_Pixel_Sprite_Sheet_07.png"
+    pivot_x: 0.610102
   }
   playback: PLAYBACK_LOOP_FORWARD
 }

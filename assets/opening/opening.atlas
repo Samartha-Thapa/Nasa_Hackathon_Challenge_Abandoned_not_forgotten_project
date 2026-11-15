@@ -1,0 +1,186 @@
+images {
+  image: "/assets/SBS - Seamless Space Backgrounds - Large 1024x1024/Large 1024x1024/Blue Nebula/Blue_Nebula_01-1024x1024.png"
+}
+images {
+  image: "/assets/69761543.png"
+}
+images {
+  image: "/assets/3471741219.png"
+}
+images {
+  image: "/assets/1304483861.png"
+}
+images {
+  image: "/assets/astronaut_character/NPC_commander.png"
+}
+images {
+  image: "/assets/tiles/NASA Campus_ Earth Map and Assets copy.png"
+}
+animations {
+  id: "earth_01"
+  images { image: "/assets/opening/earth/frame_01.png" }
+}
+animations {
+  id: "earth_02"
+  images { image: "/assets/opening/earth/frame_02.png" }
+}
+animations {
+  id: "earth_03"
+  images { image: "/assets/opening/earth/frame_03.png" }
+}
+animations {
+  id: "earth_04"
+  images { image: "/assets/opening/earth/frame_04.png" }
+}
+animations {
+  id: "earth_05"
+  images { image: "/assets/opening/earth/frame_05.png" }
+}
+animations {
+  id: "earth_06"
+  images { image: "/assets/opening/earth/frame_06.png" }
+}
+animations {
+  id: "earth_07"
+  images { image: "/assets/opening/earth/frame_07.png" }
+}
+animations {
+  id: "earth_08"
+  images { image: "/assets/opening/earth/frame_08.png" }
+}
+animations {
+  id: "earth_09"
+  images { image: "/assets/opening/earth/frame_09.png" }
+}
+animations {
+  id: "earth_10"
+  images { image: "/assets/opening/earth/frame_10.png" }
+}
+animations {
+  id: "earth_11"
+  images { image: "/assets/opening/earth/frame_11.png" }
+}
+animations {
+  id: "earth_12"
+  images { image: "/assets/opening/earth/frame_12.png" }
+}
+animations {
+  id: "earth_13"
+  images { image: "/assets/opening/earth/frame_13.png" }
+}
+animations {
+  id: "earth_14"
+  images { image: "/assets/opening/earth/frame_14.png" }
+}
+animations {
+  id: "earth_15"
+  images { image: "/assets/opening/earth/frame_15.png" }
+}
+animations {
+  id: "earth_16"
+  images { image: "/assets/opening/earth/frame_16.png" }
+}
+animations {
+  id: "earth_17"
+  images { image: "/assets/opening/earth/frame_17.png" }
+}
+animations {
+  id: "earth_18"
+  images { image: "/assets/opening/earth/frame_18.png" }
+}
+animations {
+  id: "earth_19"
+  images { image: "/assets/opening/earth/frame_19.png" }
+}
+animations {
+  id: "earth_20"
+  images { image: "/assets/opening/earth/frame_20.png" }
+}
+animations {
+  id: "earth_21"
+  images { image: "/assets/opening/earth/frame_21.png" }
+}
+animations {
+  id: "earth_22"
+  images { image: "/assets/opening/earth/frame_22.png" }
+}
+animations {
+  id: "earth_23"
+  images { image: "/assets/opening/earth/frame_23.png" }
+}
+animations {
+  id: "earth_24"
+  images { image: "/assets/opening/earth/frame_24.png" }
+}
+animations {
+  id: "earth_25"
+  images { image: "/assets/opening/earth/frame_25.png" }
+}
+animations {
+  id: "earth_26"
+  images { image: "/assets/opening/earth/frame_26.png" }
+}
+animations {
+  id: "earth_27"
+  images { image: "/assets/opening/earth/frame_27.png" }
+}
+animations {
+  id: "earth_28"
+  images { image: "/assets/opening/earth/frame_28.png" }
+}
+animations {
+  id: "earth_29"
+  images { image: "/assets/opening/earth/frame_29.png" }
+}
+animations {
+  id: "earth_30"
+  images { image: "/assets/opening/earth/frame_30.png" }
+}
+animations {
+  id: "earth_31"
+  images { image: "/assets/opening/earth/frame_31.png" }
+}
+images {
+  image: "/assets/opening/briefing_border.png"
+}
+images {
+  image: "/assets/opening/briefing_border_rounded.png"
+}
+animations {
+  id: "earth_rotation"
+  images { image: "/assets/opening/earth/frame_01.png" }
+  images { image: "/assets/opening/earth/frame_02.png" }
+  images { image: "/assets/opening/earth/frame_03.png" }
+  images { image: "/assets/opening/earth/frame_04.png" }
+  images { image: "/assets/opening/earth/frame_05.png" }
+  images { image: "/assets/opening/earth/frame_06.png" }
+  images { image: "/assets/opening/earth/frame_07.png" }
+  images { image: "/assets/opening/earth/frame_08.png" }
+  images { image: "/assets/opening/earth/frame_09.png" }
+  images { image: "/assets/opening/earth/frame_10.png" }
+  images { image: "/assets/opening/earth/frame_11.png" }
+  images { image: "/assets/opening/earth/frame_12.png" }
+  images { image: "/assets/opening/earth/frame_13.png" }
+  images { image: "/assets/opening/earth/frame_14.png" }
+  images { image: "/assets/opening/earth/frame_15.png" }
+  images { image: "/assets/opening/earth/frame_16.png" }
+  images { image: "/assets/opening/earth/frame_17.png" }
+  images { image: "/assets/opening/earth/frame_18.png" }
+  images { image: "/assets/opening/earth/frame_19.png" }
+  images { image: "/assets/opening/earth/frame_20.png" }
+  images { image: "/assets/opening/earth/frame_21.png" }
+  images { image: "/assets/opening/earth/frame_22.png" }
+  images { image: "/assets/opening/earth/frame_23.png" }
+  images { image: "/assets/opening/earth/frame_24.png" }
+  images { image: "/assets/opening/earth/frame_25.png" }
+  images { image: "/assets/opening/earth/frame_26.png" }
+  images { image: "/assets/opening/earth/frame_27.png" }
+  images { image: "/assets/opening/earth/frame_28.png" }
+  images { image: "/assets/opening/earth/frame_29.png" }
+  images { image: "/assets/opening/earth/frame_30.png" }
+  images { image: "/assets/opening/earth/frame_31.png" }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+
+extrude_borders: 2

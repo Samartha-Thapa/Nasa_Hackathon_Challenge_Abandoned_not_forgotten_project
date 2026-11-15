@@ -1,4 +1,17 @@
 name: "main"
+embedded_instances {
+  id: "gameplay_ambient"
+  data: "embedded_components {\n"
+  "  id: \"gameplay_ambient\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: /assets/sound_effects/regular_audio(of  thurster).wav\\n"
+  "gain: 0.08\\n"
+  "looping: 1\\n"
+  "auto_play: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
 instances {
   id: "player"
   prototype: "/main/player/player.go"
@@ -28,7 +41,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: -44.0
+    x: -31.0
+    y: 23.0
     z: -10.0
   }
 }
@@ -39,6 +53,10 @@ embedded_instances {
   "  component: \"/main/hud/hud.gui\"\n"
   "}\n"
   ""
+  position {
+    x: 13.0
+    y: 24.0
+  }
 }
 embedded_instances {
   id: "lot_1"

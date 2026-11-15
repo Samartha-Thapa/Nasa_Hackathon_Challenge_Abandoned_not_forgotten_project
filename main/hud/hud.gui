@@ -7,6 +7,18 @@ textures {
   name: "buildings"
   texture: "/assets/buildings/buildings.atlas"
 }
+textures {
+  name: "opening"
+  texture: "/assets/opening/opening.atlas"
+}
+textures {
+  name: "opening_earth"
+  texture: "/assets/opening/earth.atlas"
+}
+textures {
+  name: "opening_space"
+  texture: "/assets/opening/space.atlas"
+}
 nodes {
   position {
     x: 148.0
@@ -104,6 +116,176 @@ nodes {
   id: "launch_rocket"
   inherit_alpha: true
   size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 640.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+  }
+  type: TYPE_BOX
+  texture: "opening_space/deep_blue_space"
+  id: "intro_bg"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 640.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+  }
+  type: TYPE_BOX
+  texture: "opening_space/deep_blue_stars_far"
+  id: "intro_stars_far"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 640.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+  }
+  type: TYPE_BOX
+  texture: "opening_space/deep_blue_stars_near"
+  id: "intro_stars_near"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 640.0
+    y: 360.0
+  }
+  size {
+    x: 1280.0
+    y: 720.0
+  }
+  type: TYPE_BOX
+  texture: "opening_space/deep_blue_asteroids"
+  id: "intro_asteroids"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 760.0
+    y: 140.0
+  }
+  size {
+    x: 150.0
+    y: 150.0
+  }
+  type: TYPE_BOX
+  texture: "opening_space/planet_moon"
+  id: "intro_planet"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 700.0
+    y: 280.0
+  }
+  size {
+    x: 220.0
+    y: 220.0
+  }
+  type: TYPE_BOX
+  texture: "opening_earth/3471741219"
+  id: "intro_earth"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 145.0
+    y: 520.0
+  }
+  size {
+    x: 140.0
+    y: 187.0
+  }
+  type: TYPE_BOX
+  texture: "opening/NPC_commander"
+  id: "intro_commander"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 640.0
+    y: 680.0
+  }
+  size {
+    x: 800.0
+    y: 42.0
+  }
+  type: TYPE_TEXT
+  text: "DEEP SPACE // 2047"
+  font: "default"
+  id: "intro_title"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 640.0
+    y: 575.0
+  }
+  size {
+    x: 900.0
+    y: 120.0
+  }
+  color {
+    x: 0.02
+    y: 0.03
+    z: 0.08
+    w: 0.92
+  }
+  type: TYPE_BOX
+  id: "intro_panel"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_MANUAL
+}
+nodes {
+  position {
+    x: 640.0
+    y: 575.0
+  }
+  size {
+    x: 820.0
+    y: 90.0
+  }
+  type: TYPE_TEXT
+  text: ""
+  font: "default"
+  id: "intro_dialogue"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 640.0
+    y: 40.0
+  }
+  size {
+    x: 800.0
+    y: 30.0
+  }
+  type: TYPE_TEXT
+  text: "PRESS E OR CLICK TO BEGIN"
+  font: "default"
+  id: "intro_prompt"
+  inherit_alpha: true
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

@@ -1,2 +1,14 @@
 name: "earth_opening_sequence"
 scale_along_z: 0
+embedded_instances {
+  id: "opening"
+  data: "components {\n"
+  "  id: \"opening\"\n"
+  "  component: \"/main/opening/opening.gui\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"opening_sound\"\n"
+  "  component: \"/main/opening/opening.sound\"\n"
+  "}\n"
+  ""
+}

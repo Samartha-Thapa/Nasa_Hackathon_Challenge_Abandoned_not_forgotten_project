@@ -1,0 +1,169 @@
+local function set_visible(node, visible)
+	gui.set_enabled(gui.get_node(node), visible)
+end
+
+local function set_space_visible(visible)
+	set_visible("space", visible)
+	set_visible("stars_far", visible)
+	set_visible("stars_near", visible)
+	set_visible("asteroid_a", visible)
+	set_visible("asteroid_b", visible)
+	set_visible("moon", visible)
+	set_visible("gas_giant", visible)
+	set_visible("ice_planet", visible)
+end
+
+local function finish_opening(self)
+	self.finished = true
+	msg.post("@system", "load", { collection = "/main/main.collectionc" })
+end
+
+local function update_space_motion(self, dt)
+	self.motion_time = self.motion_time + dt
+
+	local stars_alpha = 0.88 + math.sin(self.motion_time * 1.7) * 0.08
+	gui.set_color(gui.get_node("stars_near"), vmath.vector4(1, 1, 1, stars_alpha))
+	local far_alpha = 0.9 + math.sin(self.motion_time * 0.8 + 1.3) * 0.05
+	gui.set_color(gui.get_node("stars_far"), vmath.vector4(1, 1, 1, far_alpha))
+
+	gui.set_rotation(gui.get_node("moon"), vmath.quat_rotation_z(self.motion_time * 0.04))
+	gui.set_rotation(gui.get_node("gas_giant"), vmath.quat_rotation_z(self.motion_time * -0.02))
+	gui.set_rotation(gui.get_node("ice_planet"), vmath.quat_rotation_z(self.motion_time * 0.06))
+
+	for _, asteroid in ipairs(self.asteroids) do
+		local node = gui.get_node(asteroid.id)
+		local position = gui.get_position(node)
+		position.x = position.x + asteroid.velocity.x * dt
+		position.y = position.y + asteroid.velocity.y * dt
+		if position.x < -40 then position.x = 1000 end
+		if position.x > 1000 then position.x = -40 end
+		if position.y < 90 then position.y = 545 end
+		if position.y > 545 then position.y = 90 end
+		gui.set_position(node, position)
+	end
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	sound.play("#opening_sound")
+	self.phase = 1
+	self.timer = 0
+	self.motion_time = 0
+	self.finished = false
+	self.typewriter_timer = 0
+	self.briefing_text = ""
+	self.base_motion_time = 0
+	self.asteroids = {
+		{ id = "asteroid_a", velocity = vmath.vector3(-9, 3, 0) },
+		{ id = "asteroid_b", velocity = vmath.vector3(-5, -2, 0) }
+	}
+
+	set_space_visible(true)
+	set_visible("earth", true)
+	set_visible("earth_zoom", false)
+	set_visible("base", false)
+	set_visible("transition_fade", true)
+	gui.set_color(gui.get_node("transition_fade"), vmath.vector4(0, 0, 0, 0))
+	set_visible("commander", false)
+	set_visible("briefing_bg", false)
+	set_visible("briefing_border", false)
+	set_visible("briefing", false)
+	set_visible("commander_name", false)
+	set_visible("continue", false)
+	gui.set_position(gui.get_node("earth"), vmath.vector3(245, 330, 0))
+	gui.set_size(gui.get_node("earth"), vmath.vector3(150, 150, 0))
+	gui.set_position(gui.get_node("asteroid_a"), vmath.vector3(890, 190, 0))
+	gui.set_position(gui.get_node("asteroid_b"), vmath.vector3(680, 470, 0))
+	gui.set_text(gui.get_node("title"), "DEEP SPACE // 2047")
+	gui.set_text(gui.get_node("signal"), "A silent signal is drifting home...")
+end
+
+function update(self, dt)
+	if self.finished then
+		return
+	end
+
+	self.timer = self.timer + dt
+	update_space_motion(self, dt)
+
+	if self.phase == 1 and self.timer >= 4.5 then
+		self.phase = 2
+		self.timer = 0
+		gui.animate(gui.get_node("earth"), gui.PROP_POSITION, vmath.vector3(480, 315, 0),
+			gui.EASING_INOUTSINE, 4.5)
+		gui.animate(gui.get_node("earth"), gui.PROP_SIZE, vmath.vector3(420, 420, 0),
+			gui.EASING_INOUTSINE, 4.5)
+		gui.set_text(gui.get_node("title"), "EARTH // APPROACH VECTOR")
+		gui.set_text(gui.get_node("signal"), "Signal lock acquired. Surface habitat is still transmitting.")
+	elseif self.phase == 2 and self.timer >= 4.5 then
+		self.phase = 3
+		self.timer = 0
+		set_space_visible(false)
+		set_visible("earth", false)
+		set_visible("earth_zoom", false)
+		gui.set_color(gui.get_node("transition_fade"), vmath.vector4(0, 0, 0, 0.92))
+		gui.set_text(gui.get_node("title"), "SURFACE DESCENT")
+		gui.set_text(gui.get_node("signal"), "")
+	elseif self.phase == 3 and self.timer >= 0.8 then
+		self.phase = 4
+		self.timer = 0
+		set_visible("base", true)
+		gui.set_position(gui.get_node("base"), vmath.vector3(480, 320, 0))
+		gui.set_size(gui.get_node("base"), vmath.vector3(600, 401, 0))
+		gui.set_color(gui.get_node("base"), vmath.vector4(1, 1, 1, 0))
+		gui.set_color(gui.get_node("transition_fade"), vmath.vector4(0, 0, 0, 0.92))
+		gui.animate(gui.get_node("base"), gui.PROP_SIZE, vmath.vector3(808, 540, 0),
+			gui.EASING_INOUTSINE, 1.5)
+		gui.animate(gui.get_node("base"), gui.PROP_COLOR,
+			vmath.vector4(1, 1, 1, 1), gui.EASING_INOUTSINE, 0.9)
+		gui.animate(gui.get_node("transition_fade"), gui.PROP_COLOR,
+			vmath.vector4(0, 0, 0, 0), gui.EASING_INOUTSINE, 0.7,
+			0.25)
+		gui.set_text(gui.get_node("title"), "EARTH BASE // RESTORATION DIRECTIVE")
+		gui.set_text(gui.get_node("signal"), "Surface link established.")
+	elseif self.phase == 4 and self.timer >= 1.8 then
+		self.phase = 5
+		self.timer = 0
+		set_visible("commander", true)
+		set_visible("briefing_bg", true)
+		set_visible("briefing_border", true)
+		set_visible("briefing", true)
+		set_visible("commander_name", true)
+		set_visible("continue", true)
+		gui.set_text(gui.get_node("signal"), "")
+		gui.set_text(gui.get_node("commander_name"), "Commander Hayes")
+		self.briefing_text = "Cadet, the Earth outpost has been abandoned, not forgotten.\n"
+			.."Rebuild the base, recover science, and reopen the routes to the Moon and Mars."
+		self.typewriter_timer = 0
+		gui.set_text(gui.get_node("briefing"), "")
+	end
+
+	if self.phase >= 4 then
+		self.base_motion_time = self.base_motion_time + dt
+		local base_position = vmath.vector3(
+			480 + math.sin(self.base_motion_time * 0.22) * 2.4,
+			320 + math.sin(self.base_motion_time * 0.17) * 1.4,
+			0)
+		local base_size = vmath.vector3(
+			808 + math.sin(self.base_motion_time * 0.2) * 3.5,
+			540 + math.sin(self.base_motion_time * 0.2) * 2.2,
+			0)
+		gui.set_position(gui.get_node("base"), base_position)
+		gui.set_size(gui.get_node("base"), base_size)
+	end
+
+	if self.phase == 5 and self.briefing_text ~= "" then
+		self.typewriter_timer = self.typewriter_timer + dt
+		local character_count = math.min(#self.briefing_text,
+			math.floor(self.typewriter_timer * 42))
+		gui.set_text(gui.get_node("briefing"),
+			string.sub(self.briefing_text, 1, character_count))
+	end
+end
+
+function on_input(self, action_id, action)
+	if self.phase == 5 and action.pressed and
+			(action_id == hash("interact") or action_id == hash("touch")) then
+		finish_opening(self)
+	end
+end
