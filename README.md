@@ -24,4 +24,9 @@ playable `main/main.collection` is loaded. The Earth stays at the same
 150-pixel scale as the surrounding planets during the space shot, while the
 high-resolution Earth is used only for the smooth zoom and base reveal.
 
+The briefing uses `assets/sound_effects/typing_sound_effect.mp3` converted to
+the Defold-compatible `typing_sound_effect.ogg`. It is attached through
+`main/opening/typing.sound`, starts when the typewriter text appears, and stops
+when the message finishes or the briefing is skipped.
+
 ---

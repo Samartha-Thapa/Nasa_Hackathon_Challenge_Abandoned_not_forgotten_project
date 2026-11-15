@@ -178,7 +178,7 @@ function update(self, dt)
 			math.floor(self.typewriter_timer * 42))
 		gui.set_text(gui.get_node("briefing"),
 			string.sub(self.briefing_text, 1, character_count))
-			if character_count >= #self.briefing_text then
+		if character_count >= #self.briefing_text then
 			sound.stop("#typing_sound")
 		end
 	end

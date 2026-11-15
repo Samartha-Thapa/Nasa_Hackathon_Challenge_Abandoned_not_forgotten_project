@@ -1,0 +1,3 @@
+sound: "/assets/sound_effects/typing_sound_effect.ogg"
+gain: 0.28
+looping: 1
