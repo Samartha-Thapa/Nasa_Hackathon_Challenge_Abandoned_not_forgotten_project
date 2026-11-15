@@ -36,11 +36,12 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("proxy_loaded") then
 		msg.post(sender, "enable")
 	elseif message_id == hash("go_to_earth") then
-		if self.current ~= "earth" then
-			self.next = "earth"
-			if self.current == "opening" then msg.post("#proxy_opening", "unload")
-			elseif self.current == "moon" then msg.post("#proxy_moon", "unload")
-			elseif self.current == "mars" then msg.post("#proxy_mars", "unload") end
+		if message_id == hash("go_to_earth") then
+			msg.post("#proxy_opening", "unload")
+			msg.post("#proxy_earth", "load")
+		elseif message_id == hash("go_to_moon") then
+			msg.post("#proxy_earth", "unload")
+			msg.post("#proxy_moon", "load")
 		end
 	elseif message_id == hash("go_to_moon") then
 		if self.current ~= "moon" then

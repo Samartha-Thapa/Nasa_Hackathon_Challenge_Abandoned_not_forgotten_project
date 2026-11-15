@@ -39,6 +39,13 @@ embedded_instances {
   "  component: \"/main/hud/hud.gui\"\n"
   "}\n"
   ""
+  position {
+    y: 120.0
+  }
+  scale3 {
+    x: 1.033708
+    y: 1.119046
+  }
 }
 embedded_instances {
   id: "lot_1"

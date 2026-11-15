@@ -1,4 +1,5 @@
 go.property("speed", 120)
+go.property("is_moon", false)
 
 function init(self)
 	msg.post("#camera", "acquire_camera_focus")
@@ -81,7 +82,11 @@ end
 function on_input(self, action_id, action)
 
 	if action_id == hash("interact") and action.pressed then
-		msg.post("/build_controller", "try_interact")
+		if self.is_moon then
+			msg.post("/moon_controller", "try_interact")
+		else
+			msg.post("/build_controller", "try_interact")
+		end
 		return
 	end
 	

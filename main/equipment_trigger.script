@@ -38,7 +38,7 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("trigger_response") then
 		if message.enter then
 			msg.post("/moon_controller", "found_equipment", { id = self.equipment_id, info = self.info })
-			go.set_enabled(go.get_id(), false)
+			msg.post("#collisionobject", "disable")
 		end
 	end
 end

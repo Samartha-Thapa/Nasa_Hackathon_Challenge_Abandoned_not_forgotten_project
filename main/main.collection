@@ -1,5 +1,4 @@
 name: "main"
-
 instances {
   id: "player"
   prototype: "/main/player/player.go"
@@ -43,7 +42,11 @@ embedded_instances {
   ""
   position {
     x: 13.0
-    y: 24.0
+    y: 20.0
+  }
+  scale3 {
+    x: 1.099843
+    y: 1.284622
   }
 }
 embedded_instances {
